@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'poppins',sans-serif;
+}
+
+
+section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    background: url("../image/f-site/background.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+
+
+}
+
+
+.form-box {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0px solid white;
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px white;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+h2 {
+    font-size: 2em;
+    color: bisque;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    margin: 30px 0;
+    width: 300px;
+    border-bottom: 2px solid rgb(207, 207, 207);
+}
+
+.input-box label {
+    position: absolute;
+    color: rgb(192, 192, 192);
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 96%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: rgb(255, 255, 255);
+}
+
+.in-forget {
+    margin: -15px 0 15px;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+
+}
+
+.in-forget a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.in-forget a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: 0.6s;
+
+}
+
+button:hover {
+    background-color: rgba(71, 21, 117, 0.514);
+    color: rgb(236, 236, 236);
+    box-shadow: 0 0 5px rgb(226, 226, 226);
+    letter-spacing: 0.2em;
+}
+
+.in-register {
+    margin: 25px 0 10px;
+    font-size: 0.9em;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+
+}
+
+.in-register a {
+    text-decoration: none;
+    color: rgb(202, 202, 202);
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.in-register a:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,14 @@
+.carousel-inner img{
+    width: 900px;
+    height: auto;
+    image-rendering: optimizeSpeed;
+    margin: auto;
+    box-shadow: 0 0 150px rgb(0, 255, 98);
+
+}
+
+@media (max-width: 767.98px) {
+    .carousel-inner img{
+        width: 400px;
+    }
+}
