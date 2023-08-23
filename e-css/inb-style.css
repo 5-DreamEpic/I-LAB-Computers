@@ -1,3 +1,6 @@
+:root {
+    width: 100%;
+}
 .carousel-inner img{
     width: 900px;
     height: auto;
@@ -11,15 +14,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 8px rgb(255, 255, 255);
     
-    
-
 
 }
 
 .icon-box img {
-    height: 4.5em;
+    height: 5em;
     width: auto;
     border-radius: 10px;
     box-shadow: 0 0 8px rgb(255, 255, 255);
