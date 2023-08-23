@@ -10,6 +10,7 @@
 
 }
 
+
 .icon-box {
     margin: auto;
     margin-bottom: 20px;
@@ -41,6 +42,15 @@
     transform:scale(1.05)
 
 }
+
+@media (min-width: 420px) {
+    #brand-row {
+        margin: auto;
+        width: 75%;
+    }
+    
+}
+
 
 @media (max-width: 767.98px) {
     .carousel-inner img{
