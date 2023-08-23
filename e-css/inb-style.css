@@ -7,6 +7,23 @@
 
 }
 
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgb(255, 255, 255);
+
+
+}
+
+.icon-box img {
+    height: 90px;
+    width: auto;
+
+}
+
 @media (max-width: 767.98px) {
     .carousel-inner img{
         width: 400px;
