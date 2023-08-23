@@ -2,7 +2,7 @@
     width: 100%;
 }
 .carousel-inner img{
-    width: 900px;
+    width: 600px;
     height: auto;
     image-rendering: optimizeSpeed;
     margin: auto;
@@ -11,9 +11,18 @@
 }
 
 .icon-box {
+    margin: auto;
+    margin-bottom: 20px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 0 50px 10px rgb(83, 83, 83);
+    
     
 
 }
@@ -22,7 +31,14 @@
     height: 5em;
     width: auto;
     border-radius: 10px;
-    box-shadow: 0 0 8px rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+    /* box-shadow: 0 0 10px rgb(255, 255, 255); */
+    transition: 500ms;
+
+}
+
+.icon-box img:hover {
+    transform:scale(1.05)
 
 }
 
