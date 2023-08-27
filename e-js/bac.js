@@ -96,14 +96,14 @@ $(document).ready(function () {
         if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
             $('.name, .email, .pass, .passConfirm').blur();
         } else {
-            $('.signup, .login').addClass('switched');
+            // $('.signup, .login').addClass('switched');
 
-            setTimeout(function () { $('.signup, .login').hide(); }, 700);
-            setTimeout(function () { $('.brand').addClass('active'); }, 300);
-            setTimeout(function () { $('.heading').addClass('active'); }, 600);
-            setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
-            setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
-            setTimeout(function () { $('.form').hide(); }, 700);
+            // setTimeout(function () { $('.signup, .login').hide(); }, 700);
+            // setTimeout(function () { $('.brand').addClass('active'); }, 300);
+            // setTimeout(function () { $('.heading').addClass('active'); }, 600);
+            // setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
+            // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+            // setTimeout(function () { $('.form').hide(); }, 700);
         }
     });
 
@@ -124,8 +124,8 @@ $(document).ready(function () {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
 
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+import { getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -153,10 +153,11 @@ const database = getDatabase(app);
 
 // My code
 
-submitData.addEventListener('click', (e) => {
+btnSignup.addEventListener('click', (e) => {
 
+    var name = document.getElementById('username').value;
     var email = document.getElementById('usermail').value;
-    var password = document.getElementById('password').value;
+    var password = document.getElementById('userpass').value;
 
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -164,12 +165,21 @@ submitData.addEventListener('click', (e) => {
         const user = userCredential.user;
         // ...
         set(ref(database, 'users/' + user.uid), {
+            name: name,
             email: email,
             password: password
         })
         .then(() => {
             // Data saved successfully!
-            alert("User Createrd Succesfully");
+            // alert("User Createrd Succesfully");
+            $('.signup, .login').addClass('switched');
+
+            setTimeout(function () { $('.signup, .login').hide(); }, 700);
+            setTimeout(function () { $('.brand').addClass('active'); }, 300);
+            setTimeout(function () { $('.heading').addClass('active'); }, 600);
+            setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
+            setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+            setTimeout(function () { $('.form').hide(); }, 700);
         })
         .catch((error) => {
             // The write failed...
@@ -192,6 +202,57 @@ submitData.addEventListener('click', (e) => {
 
 
 });
+
+
+btnSignin.addEventListener('click', (e) => {
+
+    var loginEmail = document.getElementById('loginemail').value;
+    var loginPassword = document.getElementById('loginpassword').value;
+
+    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+
+        var lgdate = new Date();
+        // ...
+        update(ref(database, 'users/' + user.uid), {
+            last_login: lgdate
+        })
+        .then(() => {
+            // Data saved successfully!
+            // alert("User Login Succesfully");
+            $('.signup, .login').addClass('switched');
+
+            setTimeout(function () { $('.signup, .login').hide(); }, 700);
+            setTimeout(function () { $('.brand').addClass('active'); }, 300);
+            setTimeout(function () { $('.heading').addClass('active'); }, 600);
+            setTimeout(function () { $('.success-msg p').addClass('active').html('Login Succesfull' + '<br>' + 'Redirecting to Member Area...'); }, 900);
+            // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+            setTimeout(function () { $('.form').hide(); }, 700);
+        })
+        .catch((error) => {
+            // The write failed...
+            alert(error);
+        });
+
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // alert(errorMessage);
+        setTimeout(function () { $('.toast').addClass('show'); }, 100);
+        setTimeout(function () { $('.toast-body').text(errorMessage); }, 80);
+        setTimeout(function () { $('.toast').removeClass('show'); }, 5000);
+        setTimeout(function () { location.reload(); }, 5500);
+        
+        
+    });
+
+
+});
+
+
 
 
 

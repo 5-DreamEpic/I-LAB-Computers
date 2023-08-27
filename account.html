@@ -30,7 +30,7 @@
             <!-- <h1 class="headder">I LAB Computers</h1> -->
         </div>
         
-        <div class="container-fluid">
+        <div class="container-fluid border-bottom">
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <div class="container-fluid" id="f_navbar">
                     <a class="navbar-brand" href="#"></a>
@@ -42,7 +42,7 @@
                     <div class="collapse navbar-collapse " id="collapsibleNavbar">
                         <ul class="navbar-nav p-2 me-auto">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active" id="i-home">HOME</a>
+                                <a href="index.html" class="nav-link active" id="i-home">HOME</a>
                             </li>
                             <li class="nav-item">
                                 <a href="store.html" class="nav-link " id="i-store">STORE</a>
@@ -65,7 +65,7 @@
                 </div>
             </nav>            
         </div>
-
+        <div class="sign-area">
         <div class="container p-2">
             <section id="formHolder">
                 <div class="row">
@@ -92,19 +92,19 @@
             
                                 <div class="form-group">
                                     <label for="name">Full Name</label>
-                                    <input type="text" name="username" id="name" class="name">
+                                    <input type="text" name="username" id="username" class="name">
                                     <span class="error"></span>
                                 </div>
                 
                                 <div class="form-group">
                                     <label for="email">Email Adderss</label>
-                                    <input type="email" name="emailAdress" id="email" class="email">
+                                    <input type="email" name="emailAdress" id="usermail" class="email">
                                     <span class="error"></span>
                                 </div>
                 
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" class="pass">
+                                    <input type="password" name="password" id="userpass" class="pass">
                                     <span class="error"></span>
                                 </div>
                 
@@ -115,7 +115,7 @@
                                 </div>
                 
                                 <div class="CTA">
-                                    <input type="submit" value="Signup Now" id="submit">
+                                    <input type="button" value="Signup Now" id="btnSignup">
                                     <a href="#" class="switch">I have an account</a>
                                 </div>
 
@@ -149,11 +149,11 @@
             
                                 <div class="form-group">
                                     <label for="loginPassword">Password</label>
-                                    <input type="password" name="loginPassword" id="loginPassword" required>
+                                    <input type="password" name="loginPassword" id="loginpassword" required>
                                 </div>
             
                                 <div class="CTA">
-                                    <input type="submit" value="Login">
+                                    <input type="button" value="Login" id="btnSignin">
                                     <a href="#" class="switch">I'm New</a>
                                 </div>
 
@@ -178,10 +178,27 @@
                         </div><!-- End Login Form -->
             
                     </div>
+
+                    <!-- popup -->
+
+                    <div class="toast-container position-fixed top-0 end-0 p-3">
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="1000">
+                          <div class="toast-header bg-warning">
+                            
+                            <strong class="me-auto">Warning</strong>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                          </div>
+                          <div class="toast-body bg-warning">
+                            Hello, world! This is a toast message.
+                          </div>
+                        </div>
+                      </div>
                 </div>
         
             </section>
         
+        </div>
         </div>
         
         <script src="./e-js/bac.js" type="module"></script>

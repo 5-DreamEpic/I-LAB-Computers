@@ -1,12 +1,20 @@
 body {
     font-family: "Montserrat", sans-serif;
     background: #f7edd5;
+    width: 100%;
   }
   
+  .sign-area {
+    width: 70%;
+    transform: scale(0.95);
+    margin: auto;
+    margin-top: -40px;
+  }
+
   .container {
     max-width: 800px;
-    margin-bottom: 50px;
-    
+    margin-bottom: 20px;
+     
   }
   
   a {
@@ -36,9 +44,10 @@ body {
     color: #fff;
     min-height: 540px;
     position: relative;
-    box-shadow: 0 3px 10px rgba(207, 255, 162, 0.74);
+    box-shadow: 0 0px 4px rgba(60, 255, 0, 0.74);
     transition: all 0.6s cubic-bezier(1, -0.375, 0.285, 0.995);
     z-index: 9999;
+    
   }
   .brand.active {
     width: 100%;
@@ -54,7 +63,7 @@ body {
     background: rgba(0, 0, 0, 0.85);
     z-index: -1;
   }
-  .brand a.logo {
+  /* .brand a.logo {
     color: #f95959;
     font-size: 20px;
     font-weight: 700;
@@ -66,7 +75,7 @@ body {
     color: #fff;
     transform: translateX(-5px);
     display: inline-block;
-  }
+  } */
   .brand .heading {
     position: absolute;
     top: 50%;
@@ -134,7 +143,7 @@ body {
     background: #f4fff1;
     min-height: 480px;
     margin-top: 30px;
-    box-shadow: 3px 3px 10px rgba(216, 253, 202, 0.438);
+    box-shadow: 0px 0px 10px rgba(70, 245, 6, 0.959);
     color: #757575;
     padding: 30px 0 60px;
     transition: all 1200ms cubic-bezier(1, -0.375, 0.285, 0.995);
@@ -143,6 +152,7 @@ body {
     left: -30%;
     width: 130%;
     overflow: hidden;
+    border-radius: 6px;
     
   }
   .form .form-peice.switched {
@@ -162,7 +172,7 @@ body {
     transform: translate(-50%, -50%);
   }
   .form form .form-group {
-    margin-bottom: 5px;
+    margin-bottom: 0;
     position: relative;
   }
   .form form .form-group.hasError input {
@@ -189,7 +199,7 @@ body {
     font-family: "Raleway", sans-serif !important;
     font-weight: 600;
   }
-  .form form input:not([type=submit]) {
+  .form form input:not([type=button]) {
     background: none;
     outline: none;
     border: none;
@@ -202,7 +212,7 @@ body {
     font-family: "Montserrat", sans-serif;
     z-index: 1;
   }
-  .form form input:not([type=submit]).hasError {
+  .form form input:not([type=button]).hasError {
     border-color: #f95959;
   }
   .form form span.error {
@@ -225,13 +235,20 @@ body {
     font-weight: 700;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
-    padding: 10px 30px;
-    background: #46be16;
+    padding: 8px 30px;
+    background: #d0ffbe;
     color: #0f0f0f;
     border-radius: 30px;
     margin-right: 20px;
     border: none;
     font-family: "Montserrat", sans-serif;
+    box-shadow: 0 0 4px rgb(78, 78, 78);
+    transition: 400ms;
+
+  }
+  .form form .CTA input:hover {
+    transform: scale(1.04);
+    background-color: #97ff6e;
   }
   .form form .CTA a.switch {
     font-size: 13px;
@@ -257,16 +274,21 @@ body {
     vertical-align: middle;
     align-items: center;
     border-radius: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.25);
+    border: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.582);
     gap: 0.75rem;
     color: rgb(43, 43, 43);
     background-color: #fff;
     cursor: pointer;
     transition: all .6s ease;
+    
   }
-  
+  .button {
+    border-radius: 20px;
+  }
   .button svg {
     height: 24px;
+    
   }
   
   button:hover {
@@ -276,16 +298,26 @@ body {
   .sep-txt h1{
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #353535;
-    font-size: 1.2rem;
+    color: #777777;
+    font-size: 1.1rem;
   }
 
   .g-sign {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0;
+    margin-bottom: 40px;
+    
+    
   }
+
+  div .toast-container {
+    margin-top: 40px;
+    
+    
+  }
+
+
 
 
   
@@ -293,7 +325,19 @@ body {
   
   @media (max-width: 768px) {
     .container {
-      overflow: hidden;
+      /* overflow: hidden; */
+      width: 100%;
+      margin: auto;
+    }
+
+    div .toast-container {
+      
+      margin-top: 20px;
+    }
+
+    .sign-area {
+      width: 100%;
+      margin-top: 10px;
     }
   
     section#formHolder {
@@ -340,13 +384,28 @@ body {
       left: 50%;
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 540px) {
     section#formHolder .form {
       width: 100vw;
       margin-left: 0;
     }
+
+    div .toast-container {
+      margin-top: 200px;
+      width: 100%;
+    }
+    div .toast {
+      width: 100%;
+    }
+
   
-    h2 {
+    /* h2 {
       font-size: 50px !important;
+    } */
+    .sign-area {
+      width: 100%;
+      transform: scale(1);
+      margin: auto;
+      margin-top: 8px;
     }
   }
