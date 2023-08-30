@@ -1,129 +1,9 @@
 
-/*global $, document, window, setTimeout, navigator, console, location*/
-$(document).ready(function () {
-
-    'use strict';
-
-    var usernameError = true,
-        emailError    = true,
-        passwordError = true,
-        passConfirm   = true;
-
-    // Detect browser for css purpose
-    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
-        $('.form form label').addClass('fontSwitch');
-    }
-
-    // Label effect
-    $('input').focus(function () {
-
-        $(this).siblings('label').addClass('active');
-    });
-
-    // Form validation
-    $('input').blur(function () {
-
-        // User Name
-        if ($(this).hasClass('name')) {
-            if ($(this).val().length === 0) {
-                $(this).siblings('span.error').text('Please type your full name').fadeIn().parent('.form-group').addClass('hasError');
-                usernameError = true;
-            } else if ($(this).val().length > 1 && $(this).val().length <= 6) {
-                $(this).siblings('span.error').text('Please type at least 6 characters').fadeIn().parent('.form-group').addClass('hasError');
-                usernameError = true;
-            } else {
-                $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
-                usernameError = false;
-            }
-        }
-        // Email
-        if ($(this).hasClass('email')) {
-            if ($(this).val().length == '') {
-                $(this).siblings('span.error').text('Please type your email address').fadeIn().parent('.form-group').addClass('hasError');
-                emailError = true;
-            } else {
-                $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
-                emailError = false;
-            }
-        }
-
-        // PassWord
-        if ($(this).hasClass('pass')) {
-            if ($(this).val().length < 8) {
-                $(this).siblings('span.error').text('Please type at least 8 charcters').fadeIn().parent('.form-group').addClass('hasError');
-                passwordError = true;
-            } else {
-                $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
-                passwordError = false;
-            }
-        }
-
-        // PassWord confirmation
-        if ($('.pass').val() !== $('.passConfirm').val()) {
-            $('.passConfirm').siblings('.error').text('Passwords don\'t match').fadeIn().parent('.form-group').addClass('hasError');
-            passConfirm = false;
-        } else {
-            $('.passConfirm').siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
-            passConfirm = false;
-        }
-
-        // label effect
-        if ($(this).val().length > 0) {
-            $(this).siblings('label').addClass('active');
-        } else {
-            $(this).siblings('label').removeClass('active');
-        }
-    });
-
-
-    // form switch
-    $('a.switch').click(function (e) {
-        $(this).toggleClass('active');
-        e.preventDefault();
-
-        if ($('a.switch').hasClass('active')) {
-            $(this).parents('.form-peice').addClass('switched').siblings('.form-peice').removeClass('switched');
-        } else {
-            $(this).parents('.form-peice').removeClass('switched').siblings('.form-peice').addClass('switched');
-        }
-    });
-
-
-    // Form submit
-    $('form.signup-form').submit(function (event) {
-        event.preventDefault();
-
-        if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
-            $('.name, .email, .pass, .passConfirm').blur();
-        } else {
-            // $('.signup, .login').addClass('switched');
-
-            // setTimeout(function () { $('.signup, .login').hide(); }, 700);
-            // setTimeout(function () { $('.brand').addClass('active'); }, 300);
-            // setTimeout(function () { $('.heading').addClass('active'); }, 600);
-            // setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
-            // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
-            // setTimeout(function () { $('.form').hide(); }, 700);
-        }
-    });
-
-    // Reload page
-    $('a.profile').on('click', function () {
-        location.reload(true);
-    });
-
-
-});
-
-
-
-
-
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
+// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
 
+import { GoogleAuthProvider, signInWithRedirect, getRedirectResult} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 import { getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
@@ -143,21 +23,23 @@ const firebaseConfig = {
   measurementId: "G-39WTC8YS17"
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
 const auth = getAuth();
 const database = getDatabase(app);
+const provider = new GoogleAuthProvider(app);
 
 
 // My code
 
-btnSignup.addEventListener('click', (e) => {
+btnSign.addEventListener('click', (e) => {
 
-    var name = document.getElementById('username').value;
-    var email = document.getElementById('usermail').value;
-    var password = document.getElementById('userpass').value;
+    var name = document.getElementById('regName').value;
+    var email = document.getElementById('regEmail').value;
+    var password = document.getElementById('regPass').value;
 
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -194,8 +76,14 @@ btnSignup.addEventListener('click', (e) => {
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        const errorMessageF = errorMessage.replace("Firebase:","");
+        
         // ..
-        alert(errorMessage);
+        // alert(errorMessage);
+        setTimeout(function () { $('.toast').addClass('show'); }, 100);
+        setTimeout(function () { $('.toast-body').text(errorMessageF); }, 80);
+        setTimeout(function () { $('.toast').removeClass('show'); }, 5000);
+        setTimeout(function () { location.reload(); }, 5500);
     
     });
 
@@ -204,8 +92,7 @@ btnSignup.addEventListener('click', (e) => {
 });
 
 
-btnSignin.addEventListener('click', (e) => {
-
+btnLogin.addEventListener('click', (e) => {
     var loginEmail = document.getElementById('loginemail').value;
     var loginPassword = document.getElementById('loginpassword').value;
 
@@ -240,9 +127,10 @@ btnSignin.addEventListener('click', (e) => {
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        const errorMessageF = errorMessage.replace("Firebase:","");
         // alert(errorMessage);
         setTimeout(function () { $('.toast').addClass('show'); }, 100);
-        setTimeout(function () { $('.toast-body').text(errorMessage); }, 80);
+        setTimeout(function () { $('.toast-body').text(errorMessageF); }, 80);
         setTimeout(function () { $('.toast').removeClass('show'); }, 5000);
         setTimeout(function () { location.reload(); }, 5500);
         
@@ -253,6 +141,33 @@ btnSignin.addEventListener('click', (e) => {
 });
 
 
+btnGlogin.addEventListener('click', (e) => {
+    signInWithRedirect(auth, provider);
+    getRedirectResult(auth)
+    .then((result) => {
+        // This gives you a Google Access Token. You can use it to access Google APIs.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
 
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        alert(user.displayName);
+
+
+    }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+  });
+
+
+});
 
 

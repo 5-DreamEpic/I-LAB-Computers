@@ -2,6 +2,7 @@ body {
     font-family: "Montserrat", sans-serif;
     background: #f7edd5;
     width: 100%;
+    height: 200px;
   }
   
   .sign-area {
@@ -44,7 +45,7 @@ body {
     color: #fff;
     min-height: 540px;
     position: relative;
-    box-shadow: 0 0px 4px rgba(60, 255, 0, 0.74);
+    box-shadow: 0 0 3px rgba(60, 255, 0, 0.74);
     transition: all 0.6s cubic-bezier(1, -0.375, 0.285, 0.995);
     z-index: 9999;
     
@@ -63,7 +64,7 @@ body {
     background: rgba(0, 0, 0, 0.85);
     z-index: -1;
   }
-  /* .brand a.logo {
+  .brand a.logo {
     color: #f95959;
     font-size: 20px;
     font-weight: 700;
@@ -75,7 +76,7 @@ body {
     color: #fff;
     transform: translateX(-5px);
     display: inline-block;
-  } */
+  }
   .brand .heading {
     position: absolute;
     top: 50%;
@@ -138,12 +139,13 @@ body {
   
   .form {
     position: relative;
+    
   }
   .form .form-peice {
     background: #f4fff1;
     min-height: 480px;
     margin-top: 30px;
-    box-shadow: 0px 0px 10px rgba(70, 245, 6, 0.959);
+    box-shadow: 0px 0px 4px rgba(191, 255, 168, 0.959);
     color: #757575;
     padding: 30px 0 60px;
     transition: all 1200ms cubic-bezier(1, -0.375, 0.285, 0.995);
@@ -152,7 +154,7 @@ body {
     left: -30%;
     width: 130%;
     overflow: hidden;
-    border-radius: 6px;
+    
     
   }
   .form .form-peice.switched {
@@ -162,7 +164,8 @@ body {
     transition-duration: 600ms;
     opacity: 0;
   }
-  .form form {
+  
+  .form-box {
     padding: 0 40px;
     margin: 0;
     width: 70%;
@@ -170,7 +173,11 @@ body {
     top: 50%;
     left: 60%;
     transform: translate(-50%, -50%);
+
   }
+
+
+
   .form form .form-group {
     margin-bottom: 0;
     position: relative;
@@ -238,7 +245,7 @@ body {
     padding: 8px 30px;
     background: #d0ffbe;
     color: #0f0f0f;
-    border-radius: 30px;
+    border-radius:25px;
     margin-right: 20px;
     border: none;
     font-family: "Montserrat", sans-serif;
@@ -275,7 +282,7 @@ body {
     align-items: center;
     border-radius: 0.5rem;
     border: none;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.582);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.582);
     gap: 0.75rem;
     color: rgb(43, 43, 43);
     background-color: #fff;
@@ -306,7 +313,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    
     
     
   }
@@ -384,6 +392,7 @@ body {
       left: 50%;
     }
   }
+
   @media (max-width: 540px) {
     section#formHolder .form {
       width: 100vw;
@@ -398,14 +407,32 @@ body {
       width: 100%;
     }
 
-  
-    /* h2 {
-      font-size: 50px !important;
-    } */
+    .form-peice {
+      height: 508px;
+    }
+
+    .form-box {
+      padding: 0 40px;
+      margin: auto;
+      width: 100%;
+      position: absolute;
+      top: auto;
+      left: auto;
+      transform: translate(0, 0);
+      
+    }
+
+    .brand img {
+      width: 65%;
+      height: auto;
+    }
+
     .sign-area {
       width: 100%;
       transform: scale(1);
-      margin: auto;
-      margin-top: 8px;
+  
+
     }
+
+
   }
