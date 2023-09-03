@@ -67,10 +67,7 @@ btnSign.addEventListener('click', (e) => {
             // The write failed...
             alert(error);
         });
-        
-
-
-        
+  
 
     })
     .catch((error) => {
@@ -86,7 +83,6 @@ btnSign.addEventListener('click', (e) => {
         setTimeout(function () { location.reload(); }, 5500);
     
     });
-
 
 
 });
@@ -132,18 +128,19 @@ btnLogin.addEventListener('click', (e) => {
         setTimeout(function () { $('.toast').addClass('show'); }, 100);
         setTimeout(function () { $('.toast-body').text(errorMessageF); }, 80);
         setTimeout(function () { $('.toast').removeClass('show'); }, 5000);
-        setTimeout(function () { location.reload(); }, 5500);
-        
+        setTimeout(function () { location.reload(); }, 5500);        
         
     });
-
 
 });
 
 
 btnGlogin.addEventListener('click', (e) => {
     signInWithRedirect(auth, provider);
-    getRedirectResult(auth)
+    
+});
+
+getRedirectResult(auth)
     .then((result) => {
         // This gives you a Google Access Token. You can use it to access Google APIs.
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -153,7 +150,29 @@ btnGlogin.addEventListener('click', (e) => {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        alert(user.displayName);
+        var lgdate = new Date();
+        // ...
+        update(ref(database, 'users/' + user.uid), {
+            name: user.displayName,
+            email: user.email,
+            last_login: lgdate
+        })
+        .then(() => {
+            // Data saved successfully!
+            // alert("User Login Succesfully");
+            $('.signup, .login').addClass('switched');
+
+            setTimeout(function () { $('.signup, .login').hide(); }, 700);
+            setTimeout(function () { $('.brand').addClass('active'); }, 300);
+            setTimeout(function () { $('.heading').addClass('active'); }, 600);
+            setTimeout(function () { $('.success-msg p').addClass('active').html('Login Succesfull' + '<br>' + 'Redirecting to Member Area...'); }, 900);
+            // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+            setTimeout(function () { $('.form').hide(); }, 700);
+        })
+        .catch((error) => {
+            // The write failed...
+            alert(error);
+        });
 
 
     }).catch((error) => {
@@ -165,9 +184,7 @@ btnGlogin.addEventListener('click', (e) => {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
-  });
+    });
 
-
-});
-
+    document.onload = getRedirectResult(auth);
 
