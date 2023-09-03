@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Member-Area</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/material-dashboard.css">
+    <link rel="stylesheet" href="assets/css/material-dashboard.min.css">
+    <link rel="stylesheet" href="assets/css/Features-Centered-Icons-icons.css">
+    <script type="module" src="./assets/js/js/addons/onload.js"></script>
+</head>
+
+<body class="dark-edition" style="background: #212529;">
+    <div class="wrapper">
+        <div class="sidebar" style="background: rgb(31,31,31);">
+            <div class="logo">
+                <div style="display:flex;"><img src="assets/img/logo-dark.png" width="226" height="28" style="margin:auto;"></div>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true" style="margin-left:0;margin-right:0;width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">dashboard</i> Dashboard </a></li>
+                    <li class="nav-item"><a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">person</i> User Profile </a></li>
+                    <li class="nav-item"><a class="nav-link" id="items-tab" data-toggle="tab" href="#items" role="tab" aria-controls="items" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">content_paste</i> Items List </a></li>
+                    <li class="nav-item"><a class="nav-link" id="additm-tab" data-toggle="tab" href="#additm" role="tab" aria-controls="maps" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">add_box</i>Add Product</a></li>
+                    <li class="nav-item"><a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">library_books</i> Orders </a></li>
+                    <li class="nav-item"><a class="nav-link" id="icons-tab" data-toggle="tab" href="#icons" role="tab" aria-controls="icons" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">group</i>Users</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link" id="sout-tab" data-toggle="modal" href="#mdlsout" role="tab" aria-controls="icons" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">phonelink_erase</i>Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute" style="position: sticky;">
+                <div class="container-fluid" style="position:sticky;">
+                    <div class="navbar-wrapper"><a class="navbar-brand">I LAB Computers - Member Area</a></div><button class="navbar-toggler" data-bs-toggle="collapse" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon icon-bar"></span><span class="navbar-toggler-icon icon-bar"></span><span class="navbar-toggler-icon icon-bar"></span></button>
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <ul class="nav">
+                            <li class="nav-item" style="display:flex;position:relative;"><a class="nav-link"><i class="material-icons">notifications</i></a><a class="nav-link"><i class="material-icons">account_circle</i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="content" style="margin-top: 10px;padding: 5px 15px;">
+                <div id="myTabContent" class="tab-content">
+                    <div id="dashboard" class="tab-pane fade show active" role="tabpanel" aria-labelledby="dashboard-tab">
+                        <div class="container container-md">
+                            <div class="container bg-secondary-subtle py-4 py-xl-5">
+                                <div class="row mb-5">
+                                    <div class="col-md-8 col-xl-6 text-center mx-auto">
+                                        <h2>Admin Panel</h2>
+                                        <p class="w-lg-50">This section is Under the Constructions</p>
+                                    </div>
+                                </div>
+                                <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+                                    <div class="col">
+                                        <div class="text-center d-flex flex-column align-items-center align-items-xl-center">
+                                            <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person-fill">
+                                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
+                                                </svg></div>
+                                            <div class="px-3">
+                                                <h4>Profile</h4>
+                                                <p>Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><a href="#">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                                    </svg></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-center d-flex flex-column align-items-center align-items-xl-center">
+                                            <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-clipboard-check-fill">
+                                                    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+                                                    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+                                                </svg></div>
+                                            <div class="px-3">
+                                                <h4>Products</h4>
+                                                <p>Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><a href="#">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                                    </svg></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-center d-flex flex-column align-items-center align-items-xl-center">
+                                            <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-layout-text-sidebar-reverse">
+                                                    <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"></path>
+                                                    <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"></path>
+                                                </svg></div>
+                                            <div class="px-3">
+                                                <h4>Orders</h4>
+                                                <p>Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><a href="#">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+                                                    </svg></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="profile" class="tab-pane fade" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="card" style="background:rgb(32,34,31);">
+                                        <div class="card-header card-header-primary">
+                                            <h4 class="card-title">Edit Profile</h4>
+                                            <p class="card-category">Complete your profile</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Fist Name</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Last Name</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Email address</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="email"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Contact Number</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="email"></div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Contact Number (Alt.)</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="email"></div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Adress</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">City</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Postal Code</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Province</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
+                                                    </div>
+                                                </div><button class="btn btn-primary pull-right" type="submit" style="background:rgb(54,115,38);">Update Profile</button>
+                                                <div class="clearfix"></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card card-profile" style="background:rgb(32,34,31);margin-top:100px;">
+                                        <div class="card-avatar"><a href="#pablo"><img class="img" src="../assets/img/faces/marc.jpg"></a></div>
+                                        <div class="card-body">
+                                            <h6 class="card-category">CEO / Co-Founder</h6>
+                                            <h4 class="card-title">Alec Thompson</h4>
+                                            <p class="card-description" style="color:rgb(158,160,166);"> Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is... </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="items" class="tab-pane fade" role="tabpanel" aria-labelledby="items-tab">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card" style="background:rgb(70,71,69);">
+                                        <div class="card-header card-header-primary">
+                                            <h4 class="card-title">Simple Table</h4>
+                                            <p class="card-category"> Here is a subtitle for this table</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive" style="color:rgb(214,218,235);">
+                                                <table class="table table-dark">
+                                                    <thead class="text-primary">
+                                                        <tr>
+                                                            <th style="width:50px;"> ID </th>
+                                                            <th style="width:200px;"> Item Name </th>
+                                                            <th style="width:150px;"> Brand </th>
+                                                            <th style="width:130.5px;"> Quantity </th>
+                                                            <th style="width:180px;"> Price </th>
+                                                            <th style="width:110.5px;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td> 1 </td>
+                                                            <td> Dakota Rice </td>
+                                                            <td> Niger </td>
+                                                            <td> Oud-Turnhout </td>
+                                                            <td class="text-primary"> $36,738 </td>
+                                                            <td><a href=""><i class="material-icons" style="color: rgb(112,112,112);">delete</i></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> 2 </td>
+                                                            <td> Minerva Hooper </td>
+                                                            <td> Curaçao </td>
+                                                            <td> Sinaai-Waas </td>
+                                                            <td class="text-primary"> $23,789 </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> 3 </td>
+                                                            <td> Sage Rodriguez </td>
+                                                            <td> Netherlands </td>
+                                                            <td> Baileux </td>
+                                                            <td class="text-primary"> $56,142 </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> 4 </td>
+                                                            <td> Philip Chaney </td>
+                                                            <td> Korea, South </td>
+                                                            <td> Overland Park </td>
+                                                            <td class="text-primary"> $38,735 </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> 5 </td>
+                                                            <td> Doris Greene </td>
+                                                            <td> Malawi </td>
+                                                            <td> Feldkirchen in Kärnten </td>
+                                                            <td class="text-primary"> $63,542 </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> 6 </td>
+                                                            <td> Mason Porter </td>
+                                                            <td> Chile </td>
+                                                            <td> Gloucester </td>
+                                                            <td class="text-primary"> $78,615 </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div>
+                                                <nav>
+                                                    <ul class="pagination justify-content-center">
+                                                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="additm" class="tab-pane fade" role="tabpanel" aria-labelledby="maps-tab" style="height: 619.2px;">
+                        <div id="addsection" class="container col-md-12">
+                            <div class="row content">
+                                <div class="col-md-8 p-4" style="background:#1c221c;box-shadow:0px 0px 9px 1px;border-radius:8px;">
+                                    <h2 style="font-size:24px;color:rgb(190,203,220);">Add Product - Laptops</h2>
+                                    <form id="addItem-form" action="https://script.google.com/macros/s/AKfycbxH2fjquGxGr_fUZ0P7-NnddegGerW0KbqmVl6L8xxdWvFX7tNpiQ9nxlbju2g0l8sEKw/exec" target="_self" method="post">
+                                        <div class="form-element">
+                                            <div class="row g-4">
+                                                <div class="col-8"><label class="form-label form-label form-label form-label" for="inputName">Name</label><input class="form-control form-control form-control form-control" type="text" id="inputName" name="itemsName" placeholder="Product Title" aria-label=""></div>
+                                                <div class="col-4"><label class="form-label form-label form-label form-label" for="inputBrand">Brand</label><select class="form-select form-select form-select form-select" id="inputBrand" name="itemBrand" required="" style="background:#2b3629;color:rgb(152,152,152);border-style:hidden;border-bottom-color:var(--bs-body-bg);">
+                                                        <option value="" selected="">Other</option>
+                                                        <option value="">Acer</option>
+                                                        <option value="">Apple</option>
+                                                        <option value="">Asus</option>
+                                                        <option value="">Dell</option>
+                                                        <option value="">HP</option>
+                                                        <option value="">Huawei</option>
+                                                        <option value="">Lenovo</option>
+                                                        <option value="">MSI</option>
+                                                        <option value="">Samsung</option>
+                                                    </select></div>
+                                                <div class="col-4"><label class="form-label form-label form-label form-label" for="inputQuantity">Quantity</label><input class="form-control form-control form-control form-control" type="number" id="inputQuantity" name="itemQty" placeholder="Amount" min="1" aria-label="" required=""></div>
+                                                <div class="col-8"><label class="form-label form-label form-label form-label" for="inputPrice">Price <small>(eg: Rs.354000.00)</small></label><input class="form-control form-control form-control form-control" type="text" id="inputQuantity" name="itemPrice" placeholder="Retail Price" min="1" aria-label="" required=""></div>
+                                                <div class="col-12"><label class="form-label form-label form-label" for="inputDescription">Description</label><textarea class="form-control form-control form-control form-control" id="inputDescription" name="itemDesc" placeholder="Leave details here" style="height:100px;" required=""></textarea></div>
+                                                <div class="col-12 mx-auto"><label class="form-label form-label form-label" for="inputImage">Upload</label><input class="form-control form-control form-control form-control" type="file" id="inputImage" accept=".jpg,.jpeg" name="itemImg" data-bs-theme="dark"><input type="hidden" id="hiddenImageData" name="itemImgLink"></div>
+                                                <div class="col-sm-10 col-md-6 d-grid mx-auto gap-2"><button class="btn btn-primary mb-3" type="submit" style="background:rgb(33,116,37);">Add</button><button class="btn btn-danger mb-3" type="reset" style="background:rgba(210,40,36,0.74);">Clear</button></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" style="color: rgb(171,188,211);">Add Items</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p id="additmstatus" style="color: rgb(194,210,231);">Product Added Successful</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 stretch-card grid-margin">
+                                    <div class="card" style="box-shadow: 0px 0px 6px 1px rgba(153,153,153,0.56);">
+                                        <div class="card-body">
+                                            <p class="card-title">Updates</p>
+                                            <ul class="icon-data-list">
+                                                <li>
+                                                    <div class="d-flex"><img src="images/faces/face1.jpg" alt="user">
+                                                        <div>
+                                                            <p class="text-info mb-1">Isabella Becker</p>
+                                                            <p class="mb-0">Sales dashboard have been created</p><small>9:30 am</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex"><img src="images/faces/face2.jpg" alt="user">
+                                                        <div>
+                                                            <p class="text-info mb-1">Adam Warren</p>
+                                                            <p class="mb-0">You have done a great job #TW111</p><small>10:30 am</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex"><img src="images/faces/face3.jpg" alt="user">
+                                                        <div>
+                                                            <p class="text-info mb-1">Leonard Thornton</p>
+                                                            <p class="mb-0">Sales dashboard have been created</p><small>11:30 am</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex"><img src="images/faces/face4.jpg" alt="user">
+                                                        <div>
+                                                            <p class="text-info mb-1">George Morrison</p>
+                                                            <p class="mb-0">Sales dashboard have been created</p><small>8:50 am</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex"><img src="images/faces/face5.jpg" alt="user">
+                                                        <div>
+                                                            <p class="text-info mb-1">Ryan Cortez</p>
+                                                            <p class="mb-0">Herbs are fun and easy to grow.</p><small>9:00 am</small>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="orders" class="tab-pane fade" role="tabpanel" aria-labelledby="orders-tab"></div>
+                    <div id="icons" class="tab-pane fade" role="tabpanel" aria-labelledby="icons-tab"></div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="mdlsout" style="--bs-dark:#212529;--bs-dark-rgb:33,37,41;background:rgba(67,67,67,0.62);">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="border-style:hidden;">
+                                <h4 class="modal-title" style="color:var(--bs-body-bg);padding:0px;margin-top:10px;margin-left:20px;">Sign Out.......!</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body" style="border-style:none;">
+                                <p style="color:var(--bs-body-bg);padding:0px;margin-left:20px;">Do you want Sign Out...?</p>
+                            </div>
+                            <div class="modal-footer" style="border-style:none;"><button class="btn btn-light" type="button" data-bs-dismiss="modal" style="margin-top:0px;">No</button><button class="btn btn-primary" type="button" style="background:rgb(63,158,84);margin-left:10px;margin-right:20px;margin-bottom:5px;margin-top:0px;">Yes</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="float-left">
+                        <ul>
+                            <li><a href=""> I LAB COMPUTERS <span> © </span> By Dream Epic </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-1" style="width: 100%;background: rgb(20,16,16);">
+        <div class="offcanvas-header" style="margin: auto;margin-top: 50px;">
+            <h5 class="offcanvas-title" style="color: rgb(255,255,255);">You Have No Access To Visit Here&nbsp;</h5>
+        </div>
+        <div class="offcanvas-body" style="margin: auto;">
+            <p style="color: rgb(255,255,255);">Please Sign In</p><button class="btn btn-primary" type="button" data-bs-dismiss="offcanvas" style="margin: auto;">Close</button>
+        </div>
+    </div><script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://buttons.github.io/buttons.js"></script>
+    <script src="assets/js/js/core/jquery.min.js"></script>
+    <script src="assets/js/js/core/popper.min.js"></script>
+    <script src="assets/js/js/core/bootstrap-material-design.min.js"></script>
+    <script src="assets/js/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/js/js/plugins/chartist.min.js"></script>
+    <script src="assets/js/js/plugins/bootstrap-notify.js"></script>
+    <script src="assets/js/js/material-dashboard.js"></script>
+</body>
+
+</html>
