@@ -7,7 +7,6 @@ import { GoogleAuthProvider, signInWithRedirect, getRedirectResult} from "https:
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 import { getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,24 +22,18 @@ const firebaseConfig = {
   measurementId: "G-39WTC8YS17"
 };
 
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-
 const auth = getAuth();
 const database = getDatabase(app);
 const provider = new GoogleAuthProvider(app);
 
-
 // My code
-
 btnSign.addEventListener('click', (e) => {
-
     var name = document.getElementById('regName').value;
     var email = document.getElementById('regEmail').value;
     var password = document.getElementById('regPass').value;
-
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 
@@ -55,7 +48,6 @@ btnSign.addEventListener('click', (e) => {
             // Data saved successfully!
             // alert("User Createrd Succesfully");
             $('.signup, .login').addClass('switched');
-
             setTimeout(function () { $('.signup, .login').hide(); }, 700);
             setTimeout(function () { $('.brand').addClass('active'); }, 300);
             setTimeout(function () { $('.heading').addClass('active'); }, 600);
@@ -68,14 +60,12 @@ btnSign.addEventListener('click', (e) => {
             alert(error);
         });
   
-
     })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         const errorMessageF = errorMessage.replace("Firebase:","");
         
-        // ..
         // alert(errorMessage);
         setTimeout(function () { $('.toast').addClass('show'); }, 100);
         setTimeout(function () { $('.toast-body').text(errorMessageF); }, 80);
@@ -84,23 +74,21 @@ btnSign.addEventListener('click', (e) => {
     
     });
 
-
 });
 
 
 btnLogin.addEventListener('click', (e) => {
     var loginEmail = document.getElementById('loginemail').value;
     var loginPassword = document.getElementById('loginpassword').value;
-
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-
         var lgdate = new Date();
-        // ...
+        var randToken = randamToken();
         update(ref(database, 'users/' + user.uid), {
-            last_login: lgdate
+            last_login: lgdate,
+            Last_token: randToken
         })
         .then(() => {
             // Data saved successfully!
@@ -113,11 +101,15 @@ btnLogin.addEventListener('click', (e) => {
             setTimeout(function () { $('.success-msg p').addClass('active').html('Login Succesfull' + '<br>' + 'Redirecting to Member Area...'); }, 900);
             // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
             setTimeout(function () { $('.form').hide(); }, 700);
+            window.location.replace("./dashboard.html");
         })
         .catch((error) => {
             // The write failed...
-            alert(error);
+            console.error(error);
         });
+
+        setCookie(user.uid, randToken, 1);
+        window.location.replace("./dashboard.html");
 
     })
     .catch((error) => {
@@ -140,51 +132,79 @@ btnGlogin.addEventListener('click', (e) => {
     
 });
 
-getRedirectResult(auth)
-    .then((result) => {
-        // This gives you a Google Access Token. You can use it to access Google APIs.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+getRedirectResult(auth).then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
 
-        // The signed-in user info.
-        const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
-        var lgdate = new Date();
-        // ...
-        update(ref(database, 'users/' + user.uid), {
-            name: user.displayName,
-            email: user.email,
-            last_login: lgdate
-        })
-        .then(() => {
-            // Data saved successfully!
-            // alert("User Login Succesfully");
-            $('.signup, .login').addClass('switched');
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    var lgdate = new Date();
+    var randToken = randamToken();
 
-            setTimeout(function () { $('.signup, .login').hide(); }, 700);
-            setTimeout(function () { $('.brand').addClass('active'); }, 300);
-            setTimeout(function () { $('.heading').addClass('active'); }, 600);
-            setTimeout(function () { $('.success-msg p').addClass('active').html('Login Succesfull' + '<br>' + 'Redirecting to Member Area...'); }, 900);
-            // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
-            setTimeout(function () { $('.form').hide(); }, 700);
-        })
-        .catch((error) => {
-            // The write failed...
-            alert(error);
-        });
+    update(ref(database, 'users/' + user.uid), {
+        name: user.displayName,
+        email: user.email,
+        last_login: lgdate,
+        Last_token: randToken 
+    })
+    .then(() => {
+        // Data saved successfully!
+        // alert("User Login Succesfully");
+        $('.signup, .login').addClass('switched');
 
-
-    }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        setTimeout(function () { $('.signup, .login').hide(); }, 700);
+        setTimeout(function () { $('.brand').addClass('active'); }, 300);
+        setTimeout(function () { $('.heading').addClass('active'); }, 600);
+        setTimeout(function () { $('.success-msg p').addClass('active').html('Login Succesfull' + '<br>' + 'Redirecting to Member Area...'); }, 900);
+        // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+        setTimeout(function () { $('.form').hide(); }, 700);
+    })
+    .catch((error) => {
+        // The write failed...
+        // alert(error);
     });
+    setCookie(user.uid, randToken, 1);
+    window.location.replace("./dashboard.html");
 
-    document.onload = getRedirectResult(auth);
+
+})
+.catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+});
+
+document.onload = getRedirectResult(auth);
+
+const randamToken = () => {
+    return Math.floor(Math.random()*Date.now()*100099).toString(36);
+};
+
+function setCookie(name, value, minutes) {
+    var expirationDate = new Date();
+    expirationDate.setTime(expirationDate.getTime() + (minutes * 60 * 1000));
+    var expires = "expires=" + expirationDate.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+};
+
+// function getAllCookies() {
+//     var cookies = document.cookie.split(';');
+//     var cookieData = {};
+//     for (var i = 0; i < cookies.length; i++) {
+//         var cookie = cookies[i].trim().split('=');
+//         var name = cookie[0];
+//         var value = cookie[1];
+//         cookieData[name] = decodeURIComponent(value);
+//     }
+//     return cookieData;
+// };
+
+
 
