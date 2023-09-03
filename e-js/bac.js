@@ -108,7 +108,7 @@ btnLogin.addEventListener('click', (e) => {
             console.error(error);
         });
 
-        setCookie(user.uid, randToken, 1);
+        setCookie(user.uid, randToken, 60);
         window.location.replace("./dashboard.html");
 
     })
@@ -165,7 +165,7 @@ getRedirectResult(auth).then((result) => {
         // The write failed...
         // alert(error);
     });
-    setCookie(user.uid, randToken, 1);
+    setCookie(user.uid, randToken, 60);
     window.location.replace("./dashboard.html");
 
 
