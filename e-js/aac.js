@@ -1,7 +1,6 @@
 
 /*global $, document, window, setTimeout, navigator, console, location*/
 $(document).ready(function () {
-
     'use strict';
 
     var usernameError = true,
@@ -76,18 +75,19 @@ $(document).ready(function () {
     });
 
 
+});
+
     // form switch
     $('a.switch').click(function (e) {
         $(this).toggleClass('active');
         e.preventDefault();
 
         if ($('a.switch').hasClass('active')) {
-            $(this).parents('.form-peice').addClass('switched').siblings('.form-peice').removeClass('switched');
+            $(this).parents('.form-peice').addClass('tswitched').siblings('.form-peice').removeClass('tswitched');
         } else {
-            $(this).parents('.form-peice').removeClass('switched').siblings('.form-peice').addClass('switched');
+            $(this).parents('.form-peice').removeClass('tswitched').siblings('.form-peice').addClass('tswitched');
         }
     });
-
 
     // Form submit
     $('form.signup-form').submit(function (event) {
@@ -113,4 +113,3 @@ $(document).ready(function () {
     });
 
 
-});

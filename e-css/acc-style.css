@@ -4,40 +4,32 @@ body {
     width: 100%;
     height: 200px;
   }
-  
   .sign-area {
     width: 70%;
     transform: scale(0.95);
     margin: auto;
     margin-top: -40px;
   }
-
   .container {
     max-width: 800px;
-    margin-bottom: 20px;
-     
+    margin-bottom: 20px; 
   }
-  
   a {
     display: inline-block;
     text-decoration: none;
   }
-  
   input {
     outline: none !important;
   }
-  
   h1 {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 40px;
     font-weight: 700;
   }
-  
   section#formHolder {
     padding: 50px 0;
   }
-  
   .brand {
     padding: 20px;
     background-size: cover;
@@ -48,7 +40,6 @@ body {
     box-shadow: 0 0 3px rgba(60, 255, 0, 0.74);
     transition: all 0.6s cubic-bezier(1, -0.375, 0.285, 0.995);
     z-index: 9999;
-    
   }
   .brand.active {
     width: 100%;
@@ -136,7 +127,6 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
-  
   .form {
     position: relative;
     
@@ -157,14 +147,13 @@ body {
     
     
   }
-  .form .form-peice.switched {
+  .form .form-peice.tswitched {
     transform: translateX(-100%);
     width: 100%;
     left: 0;
     transition-duration: 600ms;
     opacity: 0;
   }
-  
   .form-box {
     padding: 0 40px;
     margin: 0;
@@ -175,9 +164,6 @@ body {
     transform: translate(-50%, -50%);
 
   }
-
-
-
   .form form .form-group {
     margin-bottom: 0;
     position: relative;
@@ -251,7 +237,6 @@ body {
     font-family: "Montserrat", sans-serif;
     box-shadow: 0 0 4px rgb(78, 78, 78);
     transition: 400ms;
-
   }
   .form form .CTA input:hover {
     transform: scale(1.04);
@@ -268,7 +253,6 @@ body {
   .form form .CTA a.switch:hover {
     color: #f95959;
   }
-
   button {
     max-width: 320px;
     display: flex;
@@ -287,8 +271,7 @@ body {
     color: rgb(43, 43, 43);
     background-color: #fff;
     cursor: pointer;
-    transition: all .6s ease;
-    
+    transition: all .6s ease;   
   }
   .button {
     border-radius: 20px;
@@ -296,58 +279,39 @@ body {
   .button svg {
     height: 24px;
     
-  }
-  
+  } 
   button:hover {
     transform: scale(1.02);
   }
-
   .sep-txt h1{
     margin-top: 10px;
     margin-bottom: 10px;
     color: #777777;
     font-size: 1.1rem;
   }
-
   .g-sign {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
-    
-    
-    
+    margin-bottom: 30px; 
   }
-
   div .toast-container {
-    margin-top: 40px;
-    
-    
+    margin-top: 40px; 
   }
-
-
-
-
-  
-
-  
+ 
   @media (max-width: 768px) {
     .container {
       /* overflow: hidden; */
       width: 100%;
       margin: auto;
     }
-
-    div .toast-container {
-      
+    div .toast-container {  
       margin-top: 20px;
     }
-
     .sign-area {
       width: 100%;
       margin-top: 10px;
     }
-  
     section#formHolder {
       padding: 0;
     }
@@ -381,8 +345,8 @@ body {
       width: 100% !important;
       transition: all 0.5s ease-in-out;
     }
-    section#formHolder .form .form-peice.switched {
-      transform: translateY(-100%);
+    section#formHolder .form .form-peice.tswitched {
+      transform: translateY(-200%);
       width: 100%;
       left: 0;
     }
@@ -398,7 +362,6 @@ body {
       width: 100vw;
       margin-left: 0;
     }
-
     div .toast-container {
       margin-top: 200px;
       width: 100%;
@@ -406,11 +369,9 @@ body {
     div .toast {
       width: 100%;
     }
-
     .form-peice {
       height: 508px;
     }
-
     .form-box {
       padding: 0 40px;
       margin: auto;
@@ -418,21 +379,14 @@ body {
       position: absolute;
       top: auto;
       left: auto;
-      transform: translate(0, 0);
-      
+      transform: translate(0, 0); 
     }
-
     .brand img {
       width: 65%;
       height: auto;
     }
-
     .sign-area {
       width: 100%;
       transform: scale(1);
-  
-
     }
-
-
   }

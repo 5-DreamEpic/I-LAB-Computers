@@ -34,47 +34,59 @@ btnSign.addEventListener('click', (e) => {
     var name = document.getElementById('regName').value;
     var email = document.getElementById('regEmail').value;
     var password = document.getElementById('regPass').value;
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        // ...
-        set(ref(database, 'users/' + user.uid), {
-            name: name,
-            email: email,
-            password: password
-        })
-        .then(() => {
-            // Data saved successfully!
-            // alert("User Createrd Succesfully");
-            $('.signup, .login').addClass('switched');
-            setTimeout(function () { $('.signup, .login').hide(); }, 700);
-            setTimeout(function () { $('.brand').addClass('active'); }, 300);
-            setTimeout(function () { $('.heading').addClass('active'); }, 600);
-            setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
-            setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
-            setTimeout(function () { $('.form').hide(); }, 700);
+    var confpass = document.getElementById('passwordCon').value;
+
+    if (password == confpass) {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+            set(ref(database, 'users/' + user.uid), {
+                name: name,
+                email: email,
+                password: password
+            })
+            .then(() => {
+                // Data saved successfully!
+                // alert("User Createrd Succesfully");
+                $('.signup, .login').addClass('switched');
+                setTimeout(function () { $('.signup, .login').hide(); }, 700);
+                setTimeout(function () { $('.brand').addClass('active'); }, 300);
+                setTimeout(function () { $('.heading').addClass('active'); }, 600);
+                setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
+                setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+                setTimeout(function () { $('.form').hide(); }, 700);
+            })
+            .catch((error) => {
+                // The write failed...
+                console.log(error);
+            });
+    
         })
         .catch((error) => {
-            // The write failed...
-            alert(error);
-        });
-  
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const errorMessageF = errorMessage.replace("Firebase:","");
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const errorMessageF = errorMessage.replace("Firebase:","");
+            toastalert(errorMessageF);
         
-        // alert(errorMessage);
-        setTimeout(function () { $('.toast').addClass('show'); }, 100);
-        setTimeout(function () { $('.toast-body').text(errorMessageF); }, 80);
-        setTimeout(function () { $('.toast').removeClass('show'); }, 5000);
-        setTimeout(function () { location.reload(); }, 5500);
-    
-    });
+        });
+    }else {
+        toastalert("Password Not matched");
+
+    };
 
 });
+
+
+function toastalert (alrtError) {
+    setTimeout(function () { $('.toast').addClass('show'); }, 100);
+    setTimeout(function () { $('.toast-body').text(alrtError); }, 80);
+    setTimeout(function () { $('.toast').removeClass('show'); }, 5000);
+    setTimeout(function () { location.reload(); }, 5500);
+
+};
+
 
 
 btnLogin.addEventListener('click', (e) => {
@@ -99,7 +111,7 @@ btnLogin.addEventListener('click', (e) => {
             setTimeout(function () { $('.brand').addClass('active'); }, 300);
             setTimeout(function () { $('.heading').addClass('active'); }, 600);
             setTimeout(function () { $('.success-msg p').addClass('active').html('Login Successful' + '<br>' + 'Redirecting to Member Area...' + '<br>' + 'If not redirect :' + '<a href="./dashboard.html">Click Here</a>'); }, 900);
-            setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+            // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
             setTimeout(function () { $('.form').hide(); }, 700);
             window.location.replace("./dashboard.html");
             setCookie(user.uid, randToken, 60);
@@ -108,10 +120,6 @@ btnLogin.addEventListener('click', (e) => {
             // The write failed...
             console.error(error);
         });
-        
-        
-        
-
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -121,8 +129,8 @@ btnLogin.addEventListener('click', (e) => {
         setTimeout(function () { $('.toast').addClass('show'); }, 100);
         setTimeout(function () { $('.toast-body').text(errorMessageF); }, 80);
         setTimeout(function () { $('.toast').removeClass('show'); }, 5000);
-        setTimeout(function () { location.reload(); }, 5500);        
-        
+        setTimeout(function () { location.reload(); }, 5500);               
+    
     });
 
 });
@@ -169,8 +177,6 @@ getRedirectResult(auth).then((result) => {
         // alert(error);
     });
     
-    
-
 
 })
 .catch((error) => {
