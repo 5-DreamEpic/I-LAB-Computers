@@ -122,10 +122,12 @@ function checkCookie() {
         .then((storedToken) => {
             // Now you can use the storedToken for further processing outside this function
             if(storedToken == undefined) {
-                location.replace("./account.html");
+                // location.replace("./account.html");
 
             } else {
                 // console.log('FBToken Display', storedToken);
+                var offcan = document.getElementById('offcanvas-1');
+                offcan.classList.toggle("show");
             }        
         })
         .catch((error) => {
@@ -175,3 +177,15 @@ function getAllCookies() {
 document.onload = checkCookie();
 
 setInterval(checkCookie, 60000);
+
+btnProf.addEventListener('click', (e) => {
+    var offcan = document.getElementById('offcanvas-1');
+    offcan.classList.toggle("show");
+
+});
+
+btnOfcanSign.addEventListener('click', (e) => {
+    window.location.replace('./account.html');
+
+
+});

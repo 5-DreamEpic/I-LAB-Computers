@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/material-dashboard.css">
     <link rel="stylesheet" href="assets/css/material-dashboard.min.css">
     <link rel="stylesheet" href="assets/css/Features-Centered-Icons-icons.css">
+    <link rel="stylesheet" href="./assets/css/ext-style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="./assets/js/js/addons/onload.js"></script>
 </head>
@@ -40,7 +41,7 @@
                     <div class="navbar-wrapper"><a class="navbar-brand">I LAB Computers - Member Area</a></div><button class="navbar-toggler" data-bs-toggle="collapse" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon icon-bar"></span><span class="navbar-toggler-icon icon-bar"></span><span class="navbar-toggler-icon icon-bar"></span></button>
                     <div class="collapse navbar-collapse justify-content-end">
                         <ul class="nav">
-                            <li class="nav-item" style="display:flex;position:relative;"><a class="nav-link"><i class="material-icons">notifications</i></a><a class="nav-link"><i class="material-icons">account_circle</i></a></li>
+                            <li class="nav-item" style="display:flex;position:relative;"><a class="nav-link"><i class="material-icons">notifications</i></a><button id="btnProf" class="nav-link"><i class="material-icons">account_circle</i></button></li>
                         </ul>
                     </div>
                 </div>
@@ -377,14 +378,16 @@
             </footer>
         </div>
     </div>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-1" style="width: 100%;background: rgb(20,16,16);">
+    <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas-1" style="width: 100%;background: rgb(20,16,16);">
         <div class="offcanvas-header" style="margin: auto;margin-top: 50px;">
             <h5 class="offcanvas-title" style="color: rgb(255,255,255);">You Have No Access To Visit Here&nbsp;</h5>
         </div>
-        <div class="offcanvas-body" style="margin: auto;">
-            <p style="color: rgb(255,255,255);">Please Sign In</p><button class="btn btn-primary" type="button" data-bs-dismiss="offcanvas" style="margin: auto;">Close</button>
+        <div class="offcanvas-body d-flex flex-column" style="margin: auto;">
+            <p style="color: rgb(255,255,255);">You need to Sign In first...!</p><button id="btnOfcanSign" class="btn btn-success mx-auto" type="button" style="width: 70%;">Sign in</button>
         </div>
-    </div><script>
+    </div>
+    
+<script>
     $(document).ready(function() {
       $().ready(function() {
         $sidebar = $('.sidebar');
