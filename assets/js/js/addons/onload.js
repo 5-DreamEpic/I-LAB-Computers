@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-import { getAuth, getRedirectResult, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -19,38 +19,99 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 
 
-getRedirectResult(auth)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
 
-    // The signed-in user info.
-    const user = result.user;
-    const umail = user.email;
-    const uname = user.displayName;
-    const uphoneno = user.phoneNumber;
-    const uphoto = photoURL;
 
-    console.log(umail,uname,uphoneno,uphoto);
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    // const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
+  
+
+
+function checkUser () {
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, you can access user information here
+          const umail = user.email;
+          const uname = user.displayName;
+          const uphoneno = user.phoneNumber;
+          const uphoto = user.photoURL;
+      
+          document.getElementById('profName').innerHTML = uname;
+          document.getElementById('profEmail').innerHTML = umail;
+          document.getElementById('profPhoneNo').innerHTML = uphoneno;
+          document.getElementById('profPic').src = uphoto;
+        } else {
+          // User is not signed in, handle accordingly
+        }
+      });
+
+
+
+    // const user = auth.currentUser;
+    // if (user !== null) {
+
+    //     // The user object has basic properties such as display name, email, etc.
+    //     const user = result.user;
+    //     const umail = user.email;
+    //     const uname = user.displayName;
+    //     const uphoneno = user.phoneNumber;
+    //     const uphoto = photoURL;
+
+    //     document.getElementById('profName').innerHTML = uname;
+    //     document.getElementById('profEmail').innerHTML = umail;
+    //     document.getElementById('profPhoneNo').innerHTML = uphoneno;
+    //     document.getElementById('profPic').src = uphoto;
+    //     const emailVerified = user.emailVerified;
+
+    //     // The user's ID, unique to the Firebase project. Do NOT use
+    //     // this value to authenticate with your backend server, if
+    //     // you have one. Use User.getToken() instead.
+    //     const uid = user.uid;
+    // }
+    // else {
+    //     console.log("empty");
+    // }
+
+};
+
+
+
+// getRedirectResult(auth, GoogleAuthProvider)
+//   .then((result) => {
+//     // This gives you a Google Access Token. You can use it to access Google APIs.
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+
+//     // The signed-in user info.
+//     const user = result.user;
+//     const umail = user.email;
+//     const uname = user.displayName;
+//     const uphoneno = user.phoneNumber;
+//     const uphoto = photoURL;
+
+//     document.getElementById('profName').innerHTML = uname;
+//     document.getElementById('profEmail').innerHTML = umail;
+//     document.getElementById('profPhoneNo').innerHTML = uphoneno;
+//     document.getElementById('profPic').src = uphoto;
+    
+
+//     console.log(umail,uname,uphoneno,uphoto);
+//     // IdP data available using getAdditionalUserInfo(result)
+//     // ...
+//   }).catch((error) => {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // The email of the user's account used.
+//     // const email = error.customData.email;
+//     // The AuthCredential type that was used.
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//     // ...
+//   });
 
 
 
 function checkCookie() {
     var cookies = getAllCookies();
-    getRedirectResult();
+    checkUser();
     
     for (var name in cookies) {
         var value = cookies[name];
@@ -64,7 +125,7 @@ function checkCookie() {
                 location.replace("./account.html");
 
             } else {
-                console.log('FBToken Display', storedToken);
+                // console.log('FBToken Display', storedToken);
             }        
         })
         .catch((error) => {
@@ -86,7 +147,6 @@ function getToken(userId) {
             const userData = snapshot.val();
             if (userData) {
                 const storedToken = userData.Last_token;
-                console.log("Stored Token:", storedToken);
                 resolve(storedToken); // Resolve the Promise with the storedToken
             } else {
                 reject(new Error("User data not found"));

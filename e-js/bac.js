@@ -98,18 +98,19 @@ btnLogin.addEventListener('click', (e) => {
             setTimeout(function () { $('.signup, .login').hide(); }, 700);
             setTimeout(function () { $('.brand').addClass('active'); }, 300);
             setTimeout(function () { $('.heading').addClass('active'); }, 600);
-            setTimeout(function () { $('.success-msg p').addClass('active').html('Login Succesfull' + '<br>' + 'Redirecting to Member Area...'); }, 900);
-            // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+            setTimeout(function () { $('.success-msg p').addClass('active').html('Login Successful' + '<br>' + 'Redirecting to Member Area...' + '<br>' + 'If not redirect :' + '<a href="./dashboard.html">Click Here</a>'); }, 900);
+            setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
             setTimeout(function () { $('.form').hide(); }, 700);
             window.location.replace("./dashboard.html");
+            setCookie(user.uid, randToken, 60);
         })
         .catch((error) => {
             // The write failed...
             console.error(error);
         });
-
-        setCookie(user.uid, randToken, 60);
-        window.location.replace("./dashboard.html");
+        
+        
+        
 
     })
     .catch((error) => {
@@ -157,16 +158,18 @@ getRedirectResult(auth).then((result) => {
         setTimeout(function () { $('.signup, .login').hide(); }, 700);
         setTimeout(function () { $('.brand').addClass('active'); }, 300);
         setTimeout(function () { $('.heading').addClass('active'); }, 600);
-        setTimeout(function () { $('.success-msg p').addClass('active').html('Login Succesfull' + '<br>' + 'Redirecting to Member Area...'); }, 900);
-        // setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+        setTimeout(function () { $('.success-msg p').addClass('active').html('Login Successful' + '<br>' + 'Redirecting to Member Area...' + '<br>' + 'If not redirect :' + '<a href="./dashboard.html">Click Here</a>'); }, 900);
+        setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
         setTimeout(function () { $('.form').hide(); }, 700);
+        setCookie(user.uid, randToken, 60);
+        window.location.replace("./dashboard.html");
     })
     .catch((error) => {
         // The write failed...
         // alert(error);
     });
-    setCookie(user.uid, randToken, 60);
-    window.location.replace("./dashboard.html");
+    
+    
 
 
 })
