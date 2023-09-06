@@ -31,7 +31,11 @@
                     <li class="nav-item"><a class="nav-link" id="additm-tab" data-toggle="tab" href="#additm" role="tab" aria-controls="maps" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">add_box</i>Add Product</a></li>
                     <li class="nav-item"><a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">library_books</i> Orders </a></li>
                     <li class="nav-item"><a class="nav-link" id="icons-tab" data-toggle="tab" href="#icons" role="tab" aria-controls="icons" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">group</i>Users</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link" id="sout-tab" data-toggle="modal" href="#mdlsout" role="tab" aria-controls="icons" aria-selected="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">phonelink_erase</i>Sign out</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link" id="sout-tab" data-bs-toggle="collapse" href="#soutcollapse" role="button" aria-controls="soutcollapse" aria-selected="false" aria-expanded="false" style="width:230px;font-size:12px;height:44px;margin-bottom:12px;"><i class="material-icons">phonelink_erase</i>Sign out</a></li>
+                    <div class="collapse" id="soutcollapse">
+                        <div class="card card-body">
+                            <button type="button" id="btnSout" class="btn btn-danger">SIGN OUT</button>
+                      </div>
                 </ul>
             </div>
         </div>
@@ -353,7 +357,9 @@
                     <div id="orders" class="tab-pane fade" role="tabpanel" aria-labelledby="orders-tab"></div>
                     <div id="icons" class="tab-pane fade" role="tabpanel" aria-labelledby="icons-tab"></div>
                 </div>
-                <div class="modal fade" role="dialog" tabindex="-1" id="mdlsout" style="--bs-dark:#212529;--bs-dark-rgb:33,37,41;background:rgba(67,67,67,0.62);">
+                
+                
+                <!-- <div class="modal fade" role="dialog" tabindex="-1" id="mdlsout" style="--bs-dark:#212529;--bs-dark-rgb:33,37,41;background:rgba(67,67,67,0.62);">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header" style="border-style:hidden;">
@@ -362,10 +368,10 @@
                             <div class="modal-body" style="border-style:none;">
                                 <p style="color:var(--bs-body-bg);padding:0px;margin-left:20px;">Do you want Sign Out...?</p>
                             </div>
-                            <div class="modal-footer" style="border-style:none;"><button class="btn btn-light" type="button" data-bs-dismiss="modal" style="margin-top:0px;">No</button><button class="btn btn-primary" type="button" style="background:rgb(63,158,84);margin-left:10px;margin-right:20px;margin-bottom:5px;margin-top:0px;">Yes</button></div>
+                            <div class="modal-footer" style="border-style:none;"><button class="btn btn-light" type="button" data-bs-dismiss="modal" style="margin-top:0px;">No</button><button class="btn btn-primary" id="btnSout" type="button" style="background:rgb(63,158,84);margin-left:10px;margin-right:20px;margin-bottom:5px;margin-top:0px;">Yes</button></div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <footer class="footer">
                 <div class="container-fluid">
@@ -378,14 +384,16 @@
             </footer>
         </div>
     </div>
-    <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas-1" style="width: 100%;background: rgb(20,16,16);">
-        <div class="offcanvas-header" style="margin: auto;margin-top: 50px;">
+    <div class="offcanvas offcanvas-start show" data-bs-backdrop="static" tabindex="-1" id="offcanvasib" style="width: 100%;background: #2e2a2a;">
+        <div class="offcanvas-header" style="margin: auto;">
             <h5 class="offcanvas-title" style="color: rgb(255,255,255);">You Have No Access To Visit Here&nbsp;</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" hidden="hidden" id="clsoffc"></button>
         </div>
         <div class="offcanvas-body d-flex flex-column" style="margin: auto;">
             <p style="color: rgb(255,255,255);">You need to Sign In first...!</p><button id="btnOfcanSign" class="btn btn-success mx-auto" type="button" style="width: 70%;">Sign in</button>
         </div>
     </div>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" hidden="hidden"></button>
     
 <script>
     $(document).ready(function() {

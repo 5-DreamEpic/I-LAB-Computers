@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -113,12 +113,12 @@ function checkCookie() {
     var cookies = getAllCookies();
     checkUser();
     
-    for (var name in cookies) {
-        var value = cookies[name];
-        console.log('CNAme Display', name);
-        console.log('CToken Display', name);
+    for (var cname in cookies) {
+        const cvalue = cookies[cname];
+        console.log('CNAme Display', cname);
+        console.log('CToken Display', cname);
         
-        getToken(name)
+        getToken(cname)
         .then((storedToken) => {
             // Now you can use the storedToken for further processing outside this function
             if(storedToken == undefined) {
@@ -126,8 +126,13 @@ function checkCookie() {
 
             } else {
                 // console.log('FBToken Display', storedToken);
-                var offcan = document.getElementById('offcanvas-1');
-                offcan.classList.toggle("show");
+                var offcan = document.getElementById('offcanvasib');
+                var clsoffcan = document.getElementById('clsoffc');
+                clsoffcan.click();
+                
+                
+                
+
             }        
         })
         .catch((error) => {
@@ -169,8 +174,10 @@ function getAllCookies() {
         var value = cookie[1];
         cookieData[name] = decodeURIComponent(value);
     }
+    console.log(cookieData);
 
     return cookieData;
+    
 };
 
 
@@ -181,6 +188,8 @@ setInterval(checkCookie, 60000);
 btnProf.addEventListener('click', (e) => {
     var offcan = document.getElementById('offcanvas-1');
     offcan.classList.toggle("show");
+    
+
 
 });
 
@@ -189,3 +198,38 @@ btnOfcanSign.addEventListener('click', (e) => {
 
 
 });
+
+btnSout.addEventListener('click', (e) => {
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        
+        // deleteCookie(userId);
+        deleteAllCookies();
+        
+        setTimeout(function() {
+            document.location.replace("./index.html");
+          }, 2000); // 2000 milliseconds (2 seconds)
+          
+
+        
+        
+    }).catch((error) => {
+        // An error happened.
+    });
+
+});
+
+// function deleteCookie(ckname) {
+//     document.cookie = ckname + cvalue +"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+// }
+
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+  
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf("=");
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+  };
