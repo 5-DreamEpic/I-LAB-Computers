@@ -50,7 +50,7 @@ function createcard(rowColData,idvalue) {
     ttlpb.innerText = rowColData[5];
 
     const cpbtn = document.createElement("button");
-    cpbtn.className = "btn btn-outline-danger mx-3";
+    cpbtn.className = "btn btn-outline-danger mx-2";
     cpbtn.innerHTML = "Buy Now";
     cpbtn.id = "st-btn";
 
