@@ -1,24 +1,18 @@
-
 /*global $, document, window, setTimeout, navigator, console, location*/
 $(document).ready(function () {
     'use strict';
-
     var usernameError = true,
         emailError    = true,
         passwordError = true,
         passConfirm   = true;
-
     // Detect browser for css purpose
     if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
         $('.form form label').addClass('fontSwitch');
     }
-
     // Label effect
     $('input').focus(function () {
-
         $(this).siblings('label').addClass('active');
     });
-
     // Form validation
     $('input').blur(function () {
 
@@ -45,7 +39,6 @@ $(document).ready(function () {
                 emailError = false;
             }
         }
-
         // PassWord
         if ($(this).hasClass('pass')) {
             if ($(this).val().length < 8) {
@@ -56,7 +49,6 @@ $(document).ready(function () {
                 passwordError = false;
             }
         }
-
         // PassWord confirmation
         if ($('.pass').val() !== $('.passConfirm').val()) {
             $('.passConfirm').siblings('.error').text('Passwords don\'t match').fadeIn().parent('.form-group').addClass('hasError');
@@ -65,7 +57,6 @@ $(document).ready(function () {
             $('.passConfirm').siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
             passConfirm = false;
         }
-
         // label effect
         if ($(this).val().length > 0) {
             $(this).siblings('label').addClass('active');
@@ -73,43 +64,36 @@ $(document).ready(function () {
             $(this).siblings('label').removeClass('active');
         }
     });
-
-
 });
 
-    // form switch
-    $('a.switch').click(function (e) {
-        $(this).toggleClass('active');
-        e.preventDefault();
+// form switch
+$('a.switch').click(function (e) {
+    $(this).toggleClass('active');
+    e.preventDefault();
+    if ($('a.switch').hasClass('active')) {
+        $(this).parents('.form-peice').addClass('tswitched').siblings('.form-peice').removeClass('tswitched');
+    } else {
+        $(this).parents('.form-peice').removeClass('tswitched').siblings('.form-peice').addClass('tswitched');
+    }
+});
 
-        if ($('a.switch').hasClass('active')) {
-            $(this).parents('.form-peice').addClass('tswitched').siblings('.form-peice').removeClass('tswitched');
-        } else {
-            $(this).parents('.form-peice').removeClass('tswitched').siblings('.form-peice').addClass('tswitched');
-        }
-    });
+// Form submit
+$('form.signup-form').submit(function (event) {
+    event.preventDefault();
+    if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
+        $('.name, .email, .pass, .passConfirm').blur();
+    } else {
+        $('.signup, .login').addClass('switched');
+        setTimeout(function () { $('.signup, .login').hide(); }, 700);
+        setTimeout(function () { $('.brand').addClass('active'); }, 300);
+        setTimeout(function () { $('.heading').addClass('active'); }, 600);
+        setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
+        setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
+        setTimeout(function () { $('.form').hide(); }, 700);
+    }
+});
 
-    // Form submit
-    $('form.signup-form').submit(function (event) {
-        event.preventDefault();
-
-        if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
-            $('.name, .email, .pass, .passConfirm').blur();
-        } else {
-            $('.signup, .login').addClass('switched');
-
-            setTimeout(function () { $('.signup, .login').hide(); }, 700);
-            setTimeout(function () { $('.brand').addClass('active'); }, 300);
-            setTimeout(function () { $('.heading').addClass('active'); }, 600);
-            setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
-            setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
-            setTimeout(function () { $('.form').hide(); }, 700);
-        }
-    });
-
-    // Reload page
-    $('a.profile').on('click', function () {
-        location.reload(true);
-    });
-
-
+// Reload page
+$('a.profile').on('click', function () {
+    location.reload(true);
+});

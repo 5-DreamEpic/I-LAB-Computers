@@ -131,18 +131,18 @@
                                             <form>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Fist Name</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Fist Name</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" id="profFName" type="text"></div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Last Name</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Last Name</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" id="profLName" type="text"></div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <!-- <div class="col-md-6">
                                                         <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Email address</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="email"></div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Contact Number</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="email"></div>
+                                                        <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Contact Number</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control form-control" id type="email"></div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Contact Number (Alt.)</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="email"></div>
@@ -163,7 +163,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group"><label class="form-label form-label form-label form-label form-label form-label form-label form-label bmd-label-floating">Province</label><input class="form-control form-control form-control form-control form-control form-control form-control form-control form-control" type="text"></div>
                                                     </div>
-                                                </div><button class="btn btn-primary pull-right" type="submit" style="background:rgb(54,115,38);">Update Profile</button>
+                                                </div><button class="btn btn-primary pull-right"  type="submit" style="background:rgb(54,115,38);">Update Profile</button>
                                                 <div class="clearfix"></div>
                                             </form>
                                         </div>
@@ -357,21 +357,6 @@
                     <div id="orders" class="tab-pane fade" role="tabpanel" aria-labelledby="orders-tab"></div>
                     <div id="icons" class="tab-pane fade" role="tabpanel" aria-labelledby="icons-tab"></div>
                 </div>
-                
-                
-                <!-- <div class="modal fade" role="dialog" tabindex="-1" id="mdlsout" style="--bs-dark:#212529;--bs-dark-rgb:33,37,41;background:rgba(67,67,67,0.62);">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header" style="border-style:hidden;">
-                                <h4 class="modal-title" style="color:var(--bs-body-bg);padding:0px;margin-top:10px;margin-left:20px;">Sign Out.......!</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body" style="border-style:none;">
-                                <p style="color:var(--bs-body-bg);padding:0px;margin-left:20px;">Do you want Sign Out...?</p>
-                            </div>
-                            <div class="modal-footer" style="border-style:none;"><button class="btn btn-light" type="button" data-bs-dismiss="modal" style="margin-top:0px;">No</button><button class="btn btn-primary" id="btnSout" type="button" style="background:rgb(63,158,84);margin-left:10px;margin-right:20px;margin-bottom:5px;margin-top:0px;">Yes</button></div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <footer class="footer">
                 <div class="container-fluid">
@@ -394,7 +379,7 @@
         </div>
     </div>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" hidden="hidden"></button>
-    
+<script src="./assets/js/js/addons/update.js"></script>    
 <script>
     $(document).ready(function() {
       $().ready(function() {

@@ -18,7 +18,7 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRwA7ScYW-qlcurAr
         box.className = "acard";
 
         var rowColData = rows[row].split(',');
-        detdatast[idvalue] = rowColData[7];
+        detdatast[idvalue] = rowColData[6];
         
 
         const cin = document.createElement("div");
@@ -27,7 +27,7 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRwA7ScYW-qlcurAr
 
         const cimg = document.createElement("img");
         cimg.className ="c-img";
-        var ilink = rowColData[6];
+        var ilink = rowColData[5];
         if (ilink == null || ilink =="") {
           break;
         }
@@ -46,7 +46,7 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRwA7ScYW-qlcurAr
         cpbtn.innerHTML = "Buy Now";
         cpbtn.id = "st-btn";
 
-        const detdata = rowColData[7];
+        const detdata = rowColData[6];
         
 
         const cdbtn = document.createElement("button");
@@ -66,7 +66,7 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRwA7ScYW-qlcurAr
 
           const detimg = document.createElement("img");
           detimg.className = "det-img";
-          var detilink = rowColData[6];
+          var detilink = rowColData[5];
           detimg.src = detilink.replace("https://drive.google.com/open?id=","https://drive.google.com/uc?export=view&id=");
           
           const detrow = detdata;
