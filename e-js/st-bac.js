@@ -100,57 +100,6 @@ function createcard(rowColData,idvalue) {
         myModal.show();
     };
     
-
-
-    // cdbtn.onclick = function() {
-    //     const Adetdiv = document.createElement("div");
-    //     Adetdiv.className ="Adetails";
-    //     Adetdiv.id = "Adet-div";
-        
-    //     const detdiv = document.createElement("div");
-    //     detdiv.className ="details";
-    //     detdiv.id = "det-div";
-
-        
-
-    //     const detimg = document.createElement("img");
-    //     detimg.className = "det-img";
-    //     var detilink = rowColData[6];
-    //     detimg.src = detilink.replace("https://drive.google.com/open?id=","https://drive.google.com/uc?export=view&id=");
-        
-    //     const detrow = detdata;
-    //     const detrowa = "<br> -";
-    //     const detrout = detrow.split(" -").join(detrowa);
-    //     console.log(detrout);
-    //     // for (e = 0; e<detdata.length;e++) {
-    //     //   detrow[e] = detdata[e].split(',');
-    //     //   detrow[e] = detrow[e]+"<br>";
-
-    //     // }
-        
-
-    //     const detdivm = document.createElement("p");
-    //     detdivm.className ="div-data";
-    //     detdivm.id = "det-divm"+idvalue;
-    //     detdivm.innerHTML = detrout;
-
-    //     document.getElementById("cbody").appendChild(detdiv);
-    //     document.getElementById("cbody").appendChild(Adetdiv);
-    //     document.getElementById("det-div").appendChild(detdivm);
-    //     document.getElementById("det-div").appendChild(detimg);
-
-    //     const clsbtn = document.createElement("button");
-    //     clsbtn.className ="clsbtn";
-    //     clsbtn.id = "btn-cls";
-    //     clsbtn.innerHTML = "Close";
-    //     clsbtn.onclick = function() {
-    //       document.getElementById("cbody").removeChild(detdiv);
-    //     }
-
-    //     document.getElementById("det-div").appendChild(clsbtn);
-
-    //   };
-
     document.getElementById("cbody").appendChild(icard);
     document.getElementById("card"+idvalue).appendChild(cin);
     document.getElementById("cardbox"+idvalue).appendChild(cimg);
