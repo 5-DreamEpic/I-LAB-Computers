@@ -76,7 +76,7 @@ function createcard(rowColData,idvalue) {
                                 <div class="col">
                                     <img class="img-fluid rounded" src="${detilink}" alt="Image">
                                 </div>
-                                <div class="col mt-4">
+                                <div class="col mt-2">
                                     <h6 class="title">${detcont}</h6>
                                     <p class="div-data">${detdata.replace(/ -/g, "<br> -")}</p>
                                     <p class="fw-semibold text-white">${detprice}</p>
