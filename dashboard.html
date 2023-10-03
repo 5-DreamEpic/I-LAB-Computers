@@ -265,7 +265,7 @@
                             <div class="row content">
                                 <div class="col-md-8 p-4" style="background:#1c221c;box-shadow:0px 0px 9px 1px;border-radius:8px;">
                                     <h2 style="font-size:24px;color:rgb(190,203,220);">Add Product - Laptops</h2>
-                                    <form id="addItem-form" action="https://script.google.com/macros/s/AKfycbyxfKmDtiEGTy0yz0BGTjRQsz_sPRslVJIyLPJ-T22QWko0l2SH6YTQs7K7JIG300AE/exec" target="_self" method="post">
+                                    <form id="addItem-form" action="https://script.google.com/macros/s/AKfycbyxfKmDtiEGTy0yz0BGTjRQsz_sPRslVJIyLPJ-T22QWko0l2SH6YTQs7K7JIG300AE/exec" target="_self" method="POST" enctype="multipart/form-data">
                                         <div class="form-element">
                                             <div class="row g-4">
                                                 <div class="col-8"><label class="form-label form-label form-label form-label" for="inputName">Name</label><input class="form-control form-control form-control form-control" type="text" id="inputName" name="itemsName" placeholder="Product Title" aria-label=""></div>
@@ -284,11 +284,44 @@
                                                 <div class="col-4"><label class="form-label form-label form-label form-label" for="inputQuantity">Quantity</label><input class="form-control form-control form-control form-control" type="number" id="inputQuantity" name="itemQty" placeholder="Amount" min="1" aria-label="" required=""></div>
                                                 <div class="col-8"><label class="form-label form-label form-label form-label" for="inputPrice">Price <small>(eg: Rs.354000.00)</small></label><input class="form-control form-control form-control form-control" type="text" id="inputQuantity" name="itemPrice" placeholder="Retail Price" min="1" aria-label="" required=""></div>
                                                 <div class="col-12"><label class="form-label form-label form-label" for="inputDescription">Description</label><textarea class="form-control form-control form-control form-control" id="inputDescription" name="itemDesc" placeholder="Leave details here" style="height:100px;" required=""></textarea></div>
-                                                <div class="col-12 mx-auto"><label class="form-label form-label form-label" for="inputImage">Upload</label><input class="form-control form-control form-control form-control" type="file" id="inputImage" accept=".jpg,.jpeg" name="itemImg" data-bs-theme="dark"><input type="hidden" id="hiddenImageData" name="itemImgLink"></div>
+                                                <div class="col-12 mx-auto"><label class="form-label form-label form-label" for="inputImage">Upload</label><input class="form-control form-control form-control form-control" type="file" id="inputImage" accept=".jpg,.jpeg" name="itemImg" data-bs-theme="dark"><input type="hidden" id="hiddenImageData" name="itemImgLink"><input type="hidden" id="cururl" name="currUrl"></div>
+                                                <script>
+                                                    const fileInput = document.getElementById('inputImage');
+                                                    const currentUrl = document.getElementById('cururl'); 
+                                                    currentUrl.value = window.location.href;
+
+                                                    fileInput.addEventListener('change', function () {
+                                                        const file = fileInput.files[0];
+                                                        if (file) {
+                                                            // Create a FileReader object
+                                                            const reader = new FileReader();
+
+                                                            // Add an event listener to handle when the FileReader has finished reading the file
+                                                            reader.onload = function (e) {
+                                                            // e.target.result contains the base64-encoded image data
+                                                            const base64EncodedImage = e.target.result;
+
+                                                            // You can use base64EncodedImage as needed (e.g., display it in an <img> element)
+                                                            const imageElement = document.getElementById('hiddenImageData');
+                                                            imageElement.value = base64EncodedImage.replace('data:image/jpeg;base64,','')
+                                                            console.log(imageElement.value);
+                                                            
+                                                            // You can also send the base64EncodedImage to a server or use it in your application
+                                                            };
+
+                                                            // Read the file as a data URL (base64-encoded)
+                                                            reader.readAsDataURL(file);
+                                                            
+                                                        }
+
+                                                    });
+
+                                                </script>
                                                 <div class="col-sm-10 col-md-6 d-grid mx-auto gap-2"><button class="btn btn-primary mb-3" type="submit" style="background:rgb(33,116,37);">Add</button><button class="btn btn-danger mb-3" type="reset" style="background:rgba(210,40,36,0.74);">Clear</button></div>
                                             </div>
                                         </div>
                                     </form>
+                                    <!-- <script src="/assets/js/js/addons/aditm.js"></script> -->
                                     <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
