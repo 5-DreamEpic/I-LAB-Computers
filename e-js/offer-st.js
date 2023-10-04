@@ -7,35 +7,27 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpT6gXQGdhIr0Hj
     // var dbody= document.getElementById("cbody").getElementsByClassName("col")[0];
     // dbody.innerHTML = "";
     var idvalue = 0;
-    for (var row = 1; row < rows.length; row++) {
+    var rowl = rows.length;
+    var row = rowl - 1; 
+    for (; 1 <= row; row--) {
         idvalue = row;
         var rowColData = rows[row].split(',');
-        if (rowColData[8] !== '0') {
-            console.log(rowColData[8]);
-
-
+        var numvalrcd = parseFloat(rowColData[8]);
+        if (numvalrcd !== 0) {
+            console.log(numvalrcd);
+            createcard(rowColData,idvalue,numvalrcd);
         }
-        
-
-        createcard(rowColData,idvalue);
-
-
     };
-
 });
 
-function createcard(rowColData,idvalue) {
-
+function createcard(rowColData,idvalue,numvalrcd) {
     const icard = document.createElement("div");
     icard.id = "card"+idvalue;
     icard.className = "col";
-
     const cin = document.createElement("div");
     cin.className = "card h-100";
     cin.id = "cardbox"+idvalue;
-
     const detdata = rowColData[7];
-
     const cimg = document.createElement("img");
     cimg.className ="card-img-top";
     var ilink = rowColData[6];
@@ -53,11 +45,18 @@ function createcard(rowColData,idvalue) {
     ttlp.innerText = rowColData[2];     
 
     const ttlpb = document.createElement("p");
-    ttlpb.className ="card-text fw-semibold text-danger";
+    ttlpb.className ="card-text fw-semibold text-second text-decoration-line-through";
     ttlpb.innerText = rowColData[5];
 
+    var itmprice = parseFloat(rowColData[5].match(/\d+\.\d+/)[0]);;
+    var disprice = "Rs."+ ((itmprice/100)*(100-numvalrcd)) +".00";
+
+    const ttlpb2 = document.createElement("p");
+    ttlpb2.className ="card-text fw-semibold text-danger";
+    ttlpb2.innerText = disprice;
+
     const cpbtn = document.createElement("button");
-    cpbtn.className = "btn btn-outline-danger mx-2";
+    cpbtn.className = "btn btn-outline-danger mx-2 ";
     cpbtn.innerHTML = "Buy Now";
     cpbtn.id = "st-btn";
 
@@ -86,7 +85,8 @@ function createcard(rowColData,idvalue) {
                                 <div class="col mt-2">
                                     <h6 class="title">${detcont}</h6>
                                     <p class="div-data">${detdata.replace(/ -/g, "<br> -")}</p>
-                                    <p class="fw-semibold text-white">${detprice}</p>
+                                    <p class="fw-semibold text-white text-decoration-line-through">${detprice}</p>
+                                    <p class="fw-semibold text-white">${disprice}</p>
                                     <button type="button" class="btn btn-outline-danger mx-2">Buy Now</button>
                                 </div>
                             </div>
@@ -113,6 +113,7 @@ function createcard(rowColData,idvalue) {
     document.getElementById("cardbox"+idvalue).appendChild(crdbdy);
     document.getElementById("cardbdy"+idvalue).appendChild(ttlp);
     document.getElementById("cardbdy"+idvalue).appendChild(ttlpb);
+    document.getElementById("cardbdy"+idvalue).appendChild(ttlpb2);
 
     document.getElementById("cardbdy"+idvalue).appendChild(cdbtn);
     document.getElementById("cardbdy"+idvalue).appendChild(cpbtn); 
