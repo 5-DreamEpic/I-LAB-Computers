@@ -69,11 +69,13 @@
                                 <script>
                                     document.getElementById('ser-btn').addEventListener('click', (e) => {
                                         const fnser = document.getElementById('ser-input').value;
-                                        location.href = `./brands.html?ser=${fnser}`;
+                                        const fncapser = fnser.charAt(0).toUpperCase() + fnser.slice(1).toLowerCase();
+                                        location.href = `./brands.html?ser=${fncapser}`;
                                     });
                                     document.getElementById('serField').onsubmit = function() {
                                         const fnser = document.getElementById('ser-input').value;
-                                        location.href = `./brands.html?ser=${fnser}`;
+                                        const fncapser = fnser.charAt(0).toUpperCase() + fnser.slice(1).toLowerCase();
+                                        location.href = `./brands.html?ser=${fncapser}`;
                                         return false;
                                     };
                                 </script>    
