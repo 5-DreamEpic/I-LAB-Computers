@@ -11,8 +11,6 @@
 //         idvalue = row;
 //         var rowColData = rows[row].split(',');
 //         createcard(rowColData,idvalue);
-
-
 //     };
 
 // });

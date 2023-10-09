@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="e-css/in-style.css">
-    <link rel="stylesheet" href="e-css/inb-style.css">
+    <!-- <link rel="stylesheet" href="e-css/inb-style.css"> -->
+    <!-- <link rel="stylesheet" href="e-css/card-style.css"> -->
+    <link rel="stylesheet" href="e-css/st-style.css">
+    <script src="./e-js/sc-brand.js"></script>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     
     <title>I LAB Computers</title>
     <link rel="icon" type="image/x-icon" href="./image/favicon.ico">
@@ -28,7 +32,7 @@
             <!-- <h1 class="headder">I LAB Computers</h1> -->
         </div>
         
-        <div class="container-fluid">
+        <div class="container-fluid sticky-top">
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <div class="container-fluid" id="f_navbar">
                     <a class="navbar-brand" href="#"></a>
@@ -40,7 +44,7 @@
                     <div class="collapse navbar-collapse " id="collapsibleNavbar">
                         <ul class="navbar-nav p-2 me-auto">
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link" id="i-home">HOME</a>
+                                <a href="index.html" class="nav-link" id="i-home">HOME</a>
                             </li>
                             <li class="nav-item">
                                 <a href="./store.html" class="nav-link" id="i-store">STORE</a>
@@ -49,10 +53,31 @@
                                 <a href="./offers.html" class="nav-link" id="i-offers">OFFERS / SALE</a>
                             </li> 
                             <li class="nav-item">
-                                <a href="./aboutus.html" class="nav-link active" id="i-about">ABOUT US</a>
+                                <a href="./aboutus.html" class="nav-link" id="i-about">ABOUT US</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav p-2">
+                            <li>
+                                <form id="serField">
+                                <div class="form-group mx-4 d-flex">
+                                    <input id="ser-input" type="text" placeholder="Search brands.." class="form-control col-6 text-grey">
+                                    <div class="input-group-append">
+                                        <button id="ser-btn" class="serbtn col-6"><img src="./image/ico/search.png" alt="" srcset=""></button>
+                                    </div>
+                                </div>
+                                </form>
+                                <script>
+                                    document.getElementById('ser-btn').addEventListener('click', (e) => {
+                                        const fnser = document.getElementById('ser-input').value;
+                                        location.href = `./brands.html?ser=${fnser}`;
+                                    });
+                                    document.getElementById('serField').onsubmit = function() {
+                                        const fnser = document.getElementById('ser-input').value;
+                                        location.href = `./brands.html?ser=${fnser}`;
+                                        return false;
+                                    };
+                                </script>    
+                            </li>
                             <li>
                                 <div class="d-flex text-grey">                
                                     <a href="./dashboard.html" class="nav-link" id="i-login">ACCOUNT</a>                           
@@ -63,76 +88,16 @@
                 </div>
             </nav>            
         </div>
-
-        
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <h4 class="text-white text-center fw-normal" style="font-family: Lucida, Console, Monospace;">All about I-LAB Computers</h4>
-                </div>     
-            </div>
-            <div class="row m-1">
-                <div class="col-md-3">
-                    <div class="card" data-bs-theme="dark" style="height: 400px;">
-                        <div class="card-header">
-                            <p class="text-center m-0">Our Vision</p>
-                        </div>
-                        <img class="img-fluid shadow-sm rounded border p-1" loading="lazy" src="image\about-images\contemporary-room-workplace-office-supplies-concept.jpg" alt="">
-                        <div class="row row-cols-md-1 p-3">
-                            
-                            <p class="fst-italic fw-semibold text-danger">Our vision is to provide the "Best sales and service experience" to our customers.</p>
-                            <p class="text">Get the Best Technology at Your Fingertips</p>
-                        </div>
-                    </div> 
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card" data-bs-theme="dark" style="height: 400px;">
-                        <div class="card-header">
-                                <p class="text-center m-0">Who Are We?</p>
-                        </div>
-                        <div class="card-body">
-                            <p class="text">In 2008, at Unity Plaza, the first computer shop I LAB Computers PVT LTD which transformed the shopping mall in to an IT mall now head quarter at No 82, Galle Road, Colombo-04, Sri Lanka selling and servicing computers and accessories throughtout retail outlets, direct sales, cooeporate sales, distribution and online to the nation with the pride of unmatched after sales service with over well experience employees.</p>
-                            <p class="text">I lab computers is the sale distributor foe leading international brand laptops and computers. we assemble custom made Megabox PC for home, office server or for gaming congiguring for best performance to meet customer need. I Lab Computers ia a genuine channel reselle for Intel, Microsoft, HP, DEll, Samsung, Lenovo and Acer too.</p>
-                        </div>
-                    </div>                   
-                </div>
-                <div class="col-md-3">
-                    <div class="card" data-bs-theme="dark" style="height: 400px;">
-                        <div class="card-header">
-                            <p class="m-0">Contact Us</p>
-                        </div>
-                        <div class="card-body">
-                            <p class="m-0">E-mail: info@ilabcomputers.com</p>
-                            <p class="m-0">Hotline: 011-2 214 214</p>
-                            <p>Whatsapp: 077-7 214 214</p>
-                            <p>Address: I-LAB Computers, No.8, Unity Plaza, Colombo 003, Sri Lanka</p>
-                            <iframe class="rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.974389991166!2d79.85270670947088!3d6.893666618724573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bde85d9645f%3A0xea1ae792f1aaf0e1!2sUnity%20Plaza!5e0!3m2!1sen!2slk!4v1696365733718!5m2!1sen!2slk" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                
-
-                </div>
-            </div>
-            <div class="row m-1 p-2">
-                <div class="col-sm-6">
-                    <img class="img-fluid" src="./image/about-images/bility_web_e.jpg">
-
-                </div>
-                <div class="col-sm-6 gy-2">
-                    <div class="row">
-                        <img class="img-fluid" src="./image/about-images/asaw.jpg">
-                    </div>
-                    <div class="row">
-                        <img class="img-fluid rounded" src="./image/about-images/ezgif.com-webp-to-jpg.jpg">
-                    </div>
-                </div>
+        <div class="container" id="serRes">
+            <div class="row row-cols-12">
+                <p class="text">Search Results:</p>
             </div>
         </div>
         
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-4 m-3" id="cbody">
+                   
+        </div>       
         
-
-        <br>
         <div class="footer">
             <footer class="container-fluid border-top">
                 <div class="row m-1">
@@ -182,23 +147,21 @@
 					</div>
 
                 </div>
+
                 <div class="w-100 mt-1 border-top py-4">
                     <div class="container">
                         <div class="row">
-                  <div class="col-md-6 col-lg-8">
-    
-                    <p class="copyright">
-                     | Copyright &copy; All rights reserved &reg; I LAB Computers |
-                    </p>
-                  </div>
-                  <div class="col-md-6 col-lg-4 text-md-right">
-                      <p class="mb-0 list-unstyled">
-                          <a class="mr-md-3" href="#">Terms</a>
-                          <a class="mr-md-3" href="#">Privacy</a>
-                          <a class="mr-md-3" href="#">Compliances</a>
-                      </p>
-                  </div>
-                </div>
+                            <div class="col-md-6 col-lg-8">
+                                <p class="copyright">| Copyright &copy; All rights reserved &reg; I LAB Computers |</p>
+                            </div>
+                            <div class="col-md-6 col-lg-4 text-md-right">
+                                <p class="mb-0 list-unstyled">
+                                    <a class="mr-md-3" href="#">Terms</a>
+                                    <a class="mr-md-3" href="#">Privacy</a>
+                                    <a class="mr-md-3" href="#">Compliances</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </footer>

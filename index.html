@@ -54,6 +54,27 @@
                         </ul>
                         <ul class="navbar-nav p-2">
                             <li>
+                                <form id="serField">
+                                <div class="form-group mx-4 d-flex">
+                                    <input id="ser-input" type="text" placeholder="Search brands.." class="form-control col-6 text-grey">
+                                    <div class="input-group-append">
+                                        <button id="ser-btn" class="serbtn col-6"><img src="./image/ico/search.png" alt="" srcset=""></button>
+                                    </div>
+                                </div>
+                                </form>
+                                <script>
+                                    document.getElementById('ser-btn').addEventListener('click', (e) => {
+                                        const fnser = document.getElementById('ser-input').value;
+                                        location.href = `./brands.html?ser=${fnser}`;
+                                    });
+                                    document.getElementById('serField').onsubmit = function() {
+                                        const fnser = document.getElementById('ser-input').value;
+                                        location.href = `./brands.html?ser=${fnser}`;
+                                        return false;
+                                    };
+                                </script>    
+                            </li>
+                            <li>
                                 <div class="d-flex text-grey">                
                                     <a href="./dashboard.html" class="nav-link" id="i-login">ACCOUNT</a>                           
                                 </div>
@@ -123,42 +144,42 @@
             <div class="row mt-4 bg-dark" id="brand-row">
                 <div class="col-md-3 col-sm-6 col-6">
                     <div class="icon-box">
-                        <a href="http://"><img src="./image/ico/acer.png" alt=""></a>
+                        <a href="./brands.html?ser=Acer"><img src="./image/ico/acer.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6">
                     <div class="icon-box">
-                        <a href="http://"><img src="./image/ico/asus.png" alt=""></a>
+                        <a href="./brands.html?ser=Asus"><img src="./image/ico/asus.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6">
                     <div class="icon-box">
-                        <a href="http://"><img src="./image/ico/dell.png" alt=""></a>
+                        <a href="./brands.html?ser=Dell"><img src="./image/ico/dell.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6">
                     <div class="icon-box">
-                        <a href="http://"><img src="./image/ico/hp.png" alt=""></a>
+                        <a href="./brands.html?ser=HP"><img src="./image/ico/hp.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6">
                     <div class="icon-box">
-                        <a href="http://"><img src="./image/ico/lenovo.png" alt=""></a>
+                        <a href="./brands.html?ser=Lenovo"><img src="./image/ico/lenovo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6">
                     <div class="icon-box">
-                        <a href="http://"><img src="./image/ico/samsung.png" alt=""></a>
+                        <a href="./brands.html?ser=Samsung"><img src="./image/ico/samsung.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6">
                     <div class="icon-box">
-                        <a href="http://"><img src="./image/ico/sony.png" alt=""></a>
+                        <a href="./brands.html?ser=Sony"><img src="./image/ico/sony.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6">
                     <div class="icon-box">
-                        <a href="http://"><img src="./image/ico/toshiba.png" alt=""></a>
+                        <a href="./brands.html?ser=Toshiba"><img src="./image/ico/toshiba.png" alt=""></a>
                     </div>
                 </div>
             </div>

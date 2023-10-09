@@ -1,32 +1,49 @@
-
 var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpT6gXQGdhIr0Hjjus-eeWIil4z4qn61dde06FqqgXte4F3ae_LrzcbK51xlfnkVhcXPbHrYIsjlc/pub?output=csv')
 .then(response => response.text())
 .then(text => {
+    const urlCatch = new URLSearchParams(window.location.search);
+    const urlData = urlCatch.get('ser');
+    console.log(urlData);
     const rows = text.split('\n');
     const data = rows.map(row => row.split(','));
-    // var dbody= document.getElementById("cbody").getElementsByClassName("col")[0];
-    // dbody.innerHTML = "";
     var idvalue = 0;
-    var rowl = rows.length;
-    var row = rowl - 1; 
-    for (; 1 <= row; row--) {
+    var ave = 0;
+    for (var row = 1; row < rows.length; row++) {
         idvalue = row;
         var rowColData = rows[row].split(',');
-        var numvalrcd = parseFloat(rowColData[8]);
-        if (numvalrcd !== 0) {
-            createcard(rowColData,idvalue,numvalrcd);
-        }
+        ave = brndSearch(urlData, rowColData, idvalue, ave);
+        
+        
     };
+    
+
+    if (0 == ave) {
+        const noItm = `
+            <div class="container">
+                <div class="row row-cols-6 d-flex justify-content-center mb-5">
+                    <div class="col mb-5">
+                    <p class="text my-5">Nothing Found.....!</p>
+                    </div>
+                </div>
+            </div>`;
+        document.getElementById('serRes').insertAdjacentHTML("afterend", noItm);
+
+    } 
+
 });
 
-function createcard(rowColData,idvalue,numvalrcd) {
+function createcard(rowColData,idvalue) {
+
     const icard = document.createElement("div");
     icard.id = "card"+idvalue;
     icard.className = "col";
+
     const cin = document.createElement("div");
     cin.className = "card h-100";
     cin.id = "cardbox"+idvalue;
+
     const detdata = rowColData[7];
+
     const cimg = document.createElement("img");
     cimg.className ="card-img-top";
     var ilink = rowColData[6];
@@ -44,18 +61,11 @@ function createcard(rowColData,idvalue,numvalrcd) {
     ttlp.innerText = rowColData[2];     
 
     const ttlpb = document.createElement("p");
-    ttlpb.className ="card-text fw-semibold text-second text-decoration-line-through";
+    ttlpb.className ="card-text fw-semibold text-danger";
     ttlpb.innerText = rowColData[5];
 
-    var itmprice = parseFloat(rowColData[5].match(/\d+\.\d+/)[0]);;
-    var disprice = "Rs."+ ((itmprice/100)*(100-numvalrcd)) +".00";
-
-    const ttlpb2 = document.createElement("p");
-    ttlpb2.className ="card-text fw-semibold text-danger";
-    ttlpb2.innerText = disprice;
-
     const cpbtn = document.createElement("button");
-    cpbtn.className = "btn btn-outline-danger mx-2 ";
+    cpbtn.className = "btn btn-outline-danger mx-2";
     cpbtn.innerHTML = "Buy Now";
     cpbtn.id = "st-btn";
 
@@ -84,8 +94,7 @@ function createcard(rowColData,idvalue,numvalrcd) {
                                 <div class="col mt-2">
                                     <h6 class="title">${detcont}</h6>
                                     <p class="div-data">${detdata.replace(/ -/g, "<br> -")}</p>
-                                    <p class="fw-semibold text-white text-decoration-line-through">${detprice}</p>
-                                    <p class="fw-semibold text-white">${disprice}</p>
+                                    <p class="fw-semibold text-white">${detprice}</p>
                                     <button type="button" class="btn btn-outline-danger mx-2">Buy Now</button>
                                 </div>
                             </div>
@@ -112,11 +121,27 @@ function createcard(rowColData,idvalue,numvalrcd) {
     document.getElementById("cardbox"+idvalue).appendChild(crdbdy);
     document.getElementById("cardbdy"+idvalue).appendChild(ttlp);
     document.getElementById("cardbdy"+idvalue).appendChild(ttlpb);
-    document.getElementById("cardbdy"+idvalue).appendChild(ttlpb2);
 
     document.getElementById("cardbdy"+idvalue).appendChild(cdbtn);
     document.getElementById("cardbdy"+idvalue).appendChild(cpbtn); 
 
 };
 
-
+function brndSearch(urlData, rowColData, idvalue, av) {
+    if (urlData == rowColData[3]) {
+      createcard(rowColData, idvalue);
+      av++;
+    } else {
+    //   const noItm = `
+    //     <div class="container">
+    //       <div class="row row-cols-6 d-flex justify-content-center mb-5">
+    //         <div class="col mb-5">
+    //           <p class="text my-5">Nothing Found.....!</p>
+    //         </div>
+    //       </div>
+    //     </div>`;
+    //   document.getElementById('serRes').insertAdjacentHTML("afterend", noItm);
+    }
+    return(av);
+}
+  
