@@ -2,3 +2,9 @@
 div .card {
     background-color: rgb(232, 255, 206);
 }
+
+
+.paginav nav ul li a {
+    color: rgb(0, 255, 13);
+
+}

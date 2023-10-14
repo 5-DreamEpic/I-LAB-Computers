@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/Features-Centered-Icons-icons.css">
     <link rel="stylesheet" href="./assets/css/ext-style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script type="module" src="./assets/js/js/addons/onload.js"></script>
 </head>
 
@@ -52,7 +53,7 @@
             </nav>
             <div class="content" style="margin-top: 10px;padding: 5px 15px;">
                 <div id="myTabContent" class="tab-content">
-                    <div id="dashboard" class="tab-pane fade show active" role="tabpanel" aria-labelledby="dashboard-tab">
+                    <div id="dashboard" class="tab-pane fade show" role="tabpanel" aria-labelledby="dashboard-tab">
                         <div class="container container-md">
                             <div class="container bg-secondary-subtle py-4 py-xl-5">
                                 <div class="row mb-5">
@@ -172,7 +173,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="items" class="tab-pane fade" role="tabpanel" aria-labelledby="items-tab">
+                    <div id="items" class="tab-pane fade show active" role="tabpanel" aria-labelledby="items-tab">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
@@ -187,11 +188,13 @@
                                                     <thead class="text-primary">
                                                         <tr>
                                                             <th style="width:50px;"> ID </th>
-                                                            <th style="width:200px;"> Item Name </th>
-                                                            <th style="width:150px;"> Brand </th>
-                                                            <th style="width:130.5px;"> Quantity </th>
-                                                            <th style="width:180px;"> Price </th>
-                                                            <th style="width:110.5px;">Action</th>
+                                                            <th style="width:80px;"> Date </th>
+                                                            <th style="width:220px;"> Item Name </th>
+                                                            <th style="width:80px;"> Brand </th>
+                                                            <th style="width:50px;"> Qty </th>
+                                                            <th style="width:130px;"> Price </th>
+                                                            <th style="width:80px;"> Discount </th>
+                                                            <th style="width:131px;"> Action </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="tbllist">
@@ -202,14 +205,10 @@
                                             </div>
                                             <div>
                                                 <nav>
-                                                    <ul class="pagination justify-content-center">
-                                                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                                    <ul class="pagination justify-content-center" id="pagiItm">
+                                                        <li class="page-item" id="pagiItmp"><a class="page-link" aria-label="Previous" href="#">«</a></li>
+                                                        
+                                                        <li class="page-item" id="pagiItmn"><a class="page-link" aria-label="Next" href="#">»</a></li>
                                                     </ul>
                                                 </nav>
                                             </div>

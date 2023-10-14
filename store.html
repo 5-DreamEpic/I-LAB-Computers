@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="./e-js/st-bac.js"></script>
+    
     
     <title>I LAB Computers</title>
     <link rel="icon" type="image/x-icon" href="./image/favicon.ico">
@@ -106,7 +106,20 @@
                             <a href="#" class="nav-link" id="i-about">MOUSE</a>
                         </li>
                     </ul>
-                    
+                </ul>
+                <div class="d-flex mx-3" data-bs-theme="dark">
+                <p class="m-1 p-1">Short By : </p>
+                    <div class="btn-group" role="group">
+                        <button type="button" id="btnmsb" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" id="nfbtn">Newest First</a></li>
+                        <li><a class="dropdown-item" href="#" id="ofbtn">Oldest First</a></li>
+                        </ul>
+                    </div>
+                        
+                    </div>
                 </div>
 
             </nav>
@@ -116,6 +129,25 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-4 mx-3" id="cbody">
                    
         </div>
+        <div class="row my-5 paginav">
+            <nav aria-label="Page navigation" data-bs-theme="dark">
+                <ul class="pagination pagination-lg justify-content-center">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  
+                  <li class="page-item" id="pagiitmn">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+
+
         <br>
         <div class="footer">
             <footer class="container-fluid border-top">
@@ -188,6 +220,8 @@
         </div>
 
     </div>
+
+    <script src="./e-js/st-bac.js"></script>
 
 </body>
 </html>
