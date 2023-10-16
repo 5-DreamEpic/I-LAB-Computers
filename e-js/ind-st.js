@@ -52,7 +52,7 @@ function createcard(rowColData,idvalue) {
     const cpbtn = document.createElement("button");
     cpbtn.className = "btn btn-outline-danger mx-2";
     cpbtn.innerHTML = "Buy Now";
-    cpbtn.id = "st-btn";
+    cpbtn.id = "buyNow";
 
     const cdbtn = document.createElement("button");
     cdbtn.className = "btn btn-outline-success";
@@ -80,7 +80,7 @@ function createcard(rowColData,idvalue) {
                                     <h6 class="title">${detcont}</h6>
                                     <p class="div-data">${detdata.replace(/ -/g, "<br> -")}</p>
                                     <p class="fw-semibold text-white">${detprice}</p>
-                                    <button type="button" class="btn btn-outline-danger mx-2">Buy Now</button>
+                                    <button type="button" id="buyNow" onclick="PbuyNow();" class="btn btn-outline-danger mx-2">Buy Now</button>
                                 </div>
                             </div>
                         </div>
