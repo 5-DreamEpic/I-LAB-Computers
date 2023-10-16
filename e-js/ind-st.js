@@ -6,18 +6,20 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpT6gXQGdhIr0Hj
     const data = rows.map(row => row.split(','));
     // var dbody= document.getElementById("cbody").getElementsByClassName("col")[0];
     // dbody.innerHTML = "";
-    var idvalue = 0;
-    for (var row = 5; 1 <= row; row--) {
-        idvalue = row;
-        var rowColData = rows[row].split(',');
-        createcard(rowColData,idvalue);
+    var idvalue = rows.length -1;
+    var stval = idvalue - 5;
+
+    for (; stval < idvalue; idvalue--) {
+        console.log(idvalue);
+        var rowColData = rows[idvalue].split(',');
+        createcard(rowColData, idvalue);
 
 
     };
 
 });
 
-function createcard(rowColData,idvalue) {
+function createcard(rowColData, idvalue) {
 
     const icard = document.createElement("div");
     icard.id = "card"+idvalue;
