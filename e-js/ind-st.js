@@ -14,7 +14,6 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpT6gXQGdhIr0Hj
         var rowColData = rows[idvalue].split(',');
         createcard(rowColData, idvalue);
 
-
     };
 
 });

@@ -1,25 +1,17 @@
-
 :root {
     --text-color1:#a1a1a1;
-
 }
-
 #headder1 div a {
     text-decoration: none;
     color: gray;
-
 }
-
 #headder2 {
     background-image: url('../image/logo/logo-dark.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 350px;
-    height: 150px;
-    
-    
+    height: 150px;  
 }
-
 #f_navbar #nav-logo-name {
     text-decoration: none;
     font-weight: 600;
@@ -28,19 +20,13 @@
     color: aliceblue;
     pointer-events: none;
 }
-
-
 #f_navbar .nav-logo {
     background-image: url('../image/logo/favicon.png');
     background-position: center;
     height: 36px;
     width: 36px;
     background-size: cover;
-    
-
-
 }
-
 .form-group .form-control:focus {
     box-shadow: none;
     background-color: #ffffff00;
@@ -52,27 +38,21 @@
     border-bottom-width: 1px;
     border-radius: 0;
     padding-left: 0;
-    background-color: rgba(0, 0, 0, 0);
-    
+    background-color: rgba(0, 0, 0, 0); 
 }
-
 .form-group .form-control::placeholder {
     font-size: 0.95rem;
     color: #aaa;
     font-style: italic;
 }
-
 .form-group .serbtn {
     background-color: #00000000;
     border: none;
     translate: -2em;
 }
-
 .form-group img {
     scale: 0.8;
 }
-
-
 .footer {
     font-family: "Nunito Sans", Arial, sans-serif;
     font-size: 15px;

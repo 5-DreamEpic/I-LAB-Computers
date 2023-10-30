@@ -62,8 +62,6 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRwA7ScYW-qlcurAr
           detdiv.className ="details";
           detdiv.id = "det-div";
 
-          
-
           const detimg = document.createElement("img");
           detimg.className = "det-img";
           var detilink = rowColData[5];

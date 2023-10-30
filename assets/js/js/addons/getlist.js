@@ -11,8 +11,6 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpT6gXQGdhIr0Hj
         
         var rowColData = rows[idvalue].split(',');
         // createtable(rowColData,idvalue);
-
-        
         
     };
     
@@ -20,7 +18,6 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpT6gXQGdhIr0Hj
     // pagiClick(rows);
     itmpagination(rl,rows);
     pagiClick(1)
-    
 
 });
 
@@ -61,7 +58,6 @@ function itmpagination(rl, rows) {
     }
     console.log(rldiv);
     // pagiClick(rowsq, i);
-
     
 }
 
@@ -77,7 +73,6 @@ function pagiClick(i) {
     }
     else {
         var rowl = (i*5)+1;
-        
 
     }
     for (; idvalue < rowl; idvalue++) {
@@ -86,7 +81,6 @@ function pagiClick(i) {
         createtable(rowColData,idvalue);
         
     };
-    
 
 }
 

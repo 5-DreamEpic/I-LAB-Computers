@@ -13,9 +13,7 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpT6gXQGdhIr0Hj
         var rowColData = rows[row].split(',');
         ave = brndSearch(urlData, rowColData, idvalue, ave);
         
-        
     };
-    
 
     if (0 == ave) {
         const noItm = `
