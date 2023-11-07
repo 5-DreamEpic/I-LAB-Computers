@@ -53,7 +53,7 @@
             </nav>
             <div class="content" style="margin-top: 10px;padding: 5px 15px;">
                 <div id="myTabContent" class="tab-content">
-                    <div id="dashboard" class="tab-pane fade show" role="tabpanel" aria-labelledby="dashboard-tab">
+                    <div id="dashboard" class="tab-pane fade show active" role="tabpanel" aria-labelledby="dashboard-tab">
                         <div class="container container-md">
                             <div class="container bg-secondary-subtle py-4 py-xl-5">
                                 <div class="row mb-5">
@@ -173,7 +173,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="items" class="tab-pane fade show active" role="tabpanel" aria-labelledby="items-tab">
+                    <div id="items" class="tab-pane fade" role="tabpanel" aria-labelledby="items-tab">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
@@ -299,45 +299,38 @@
                                             <p class="card-title">Updates</p>
                                             <ul class="icon-data-list">
                                                 <li>
-                                                    <div class="d-flex"><img src="" alt="user">
+                                                    <div class="d-flex"><img src="./image/ico/icons8-arrow-48.png" height="30px" alt="user">
                                                         <div>
-                                                            <p class="text-info mb-1">Isabella Becker</p>
+                                                            <p class="text-info mb-1">Test User</p>
                                                             <p class="mb-0">Sales dashboard have been created</p><small>9:30 am</small>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <div class="d-flex"><img src="" alt="user">
+                                                    <div class="d-flex"><img src="./image/ico/icons8-arrow-48.png" height="30px" alt="user">
                                                         <div>
-                                                            <p class="text-info mb-1">Adam Warren</p>
+                                                            <p class="text-info mb-1">Test User</p>
                                                             <p class="mb-0">You have done a great job #TW111</p><small>10:30 am</small>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <div class="d-flex"><img src="" alt="user">
+                                                    <div class="d-flex"><img src="./image/ico/icons8-arrow-48.png" height="30px" alt="user">
                                                         <div>
-                                                            <p class="text-info mb-1">Leonard Thornton</p>
+                                                            <p class="text-info mb-1">Test User</p>
                                                             <p class="mb-0">Sales dashboard have been created</p><small>11:30 am</small>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <div class="d-flex"><img src="" alt="user">
+                                                    <div class="d-flex"><img src="./image/ico/icons8-arrow-48.png" height="30px" alt="user">
                                                         <div>
-                                                            <p class="text-info mb-1">George Morrison</p>
+                                                            <p class="text-info mb-1">Test User</p>
                                                             <p class="mb-0">Sales dashboard have been created</p><small>8:50 am</small>
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li>
-                                                    <div class="d-flex"><img src="" alt="user">
-                                                        <div>
-                                                            <p class="text-info mb-1">Ryan Cortez</p>
-                                                            <p class="mb-0">Herbs are fun and easy to grow.</p><small>9:00 am</small>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -359,8 +352,9 @@
                 </div>
             </footer>
         </div>
-    </div>
-    <div class="offcanvas offcanvas-start show" data-bs-backdrop="static" tabindex="-1" id="offcanvasib" style="width: 100%;background: #2e2a2a;">
+    </div>               
+    
+    <!-- <div class="offcanvas offcanvas-start show" data-bs-backdrop="static" tabindex="-1" id="offcanvasib" style="width: 100%;background: #2e2a2a;">
         <div class="offcanvas-header" style="margin: auto;">
             <h5 class="offcanvas-title" style="color: rgb(255,255,255);">You Have No Access To Visit Here&nbsp;</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" hidden="hidden" id="clsoffc"></button>
@@ -368,9 +362,9 @@
         <div class="offcanvas-body d-flex flex-column" style="margin: auto;">
             <p style="color: rgb(255,255,255);">You need to Sign In first...!</p><button id="btnOfcanSign" class="btn btn-success mx-auto" type="button" style="width: 70%;">Sign in</button>
         </div>
-    </div>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" hidden="hidden"></button>
-<script src="./assets/js/js/addons/update.js"></script>    
+    </div> -->
+    <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" hidden="hidden"></button> -->
+<!-- <script src="./assets/js/js/addons/update.js"></script>     -->
 <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -543,6 +537,12 @@
     <script src="assets/js/js/plugins/bootstrap-notify.js"></script>
     <script src="assets/js/js/material-dashboard.js"></script>
     <script src="/assets/js/js/addons/BuyNow.js"></script>
+
+    <div id="blurback">
+        <div class="spinner">
+        </div>
+        <div class="sptitle"><p>Loading</p></div>
+    </div> 
 </body>
 
 </html>

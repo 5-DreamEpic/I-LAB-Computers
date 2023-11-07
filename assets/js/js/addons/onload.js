@@ -46,10 +46,7 @@ function checkCookie() {
             if(storedToken == undefined) {
                 location.replace("./account.html");
             } else {
-                // console.log('FBToken Display', storedToken);
-                var offcan = document.getElementById('offcanvasib');
-                var clsoffcan = document.getElementById('clsoffc');
-                clsoffcan.click();
+               document.getElementById('blurback').style.display = 'none'; 
             }        
         })
         .catch((error) => {
@@ -100,11 +97,8 @@ btnProf.addEventListener('click', (e) => {
     offcan.classList.toggle("show");   
 });
 
-btnOfcanSign.addEventListener('click', (e) => {
-    window.location.replace('./account.html');
-});
-
 btnSout.addEventListener('click', (e) => {
+    document.getElementById('blurback').style.display = 'block'; 
     signOut(auth).then(() => {
         // Sign-out successful.
         deleteAllCookies();

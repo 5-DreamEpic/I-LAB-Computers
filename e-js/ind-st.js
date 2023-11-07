@@ -10,7 +10,6 @@ var a = fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpT6gXQGdhIr0Hj
     var stval = idvalue - 5;
 
     for (; stval < idvalue; idvalue--) {
-        console.log(idvalue);
         var rowColData = rows[idvalue].split(',');
         createcard(rowColData, idvalue);
 
