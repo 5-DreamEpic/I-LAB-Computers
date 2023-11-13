@@ -3,8 +3,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
 import { GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+<<<<<<< Updated upstream
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 import { getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+=======
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+import { getDatabase, set, ref, update, onValue} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+>>>>>>> Stashed changes
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -80,11 +85,11 @@ function toastalert (alrtError) {
 btnLogin.addEventListener('click', (e) => {
     var loginEmail = document.getElementById('loginemail').value;
     var loginPassword = document.getElementById('loginpassword').value;
-    showLoadingScreen();
     setCookie("clicked", 1, 1);
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
     .then((userCredential) => {
         // Signed in 
+        showLoadingScreen();
         const user = userCredential.user;
         var lgdate = new Date();
         var randToken = randamToken();
@@ -128,10 +133,77 @@ btnGlogin.addEventListener('click', (e) => {
     signInWithRedirect(auth, provider);  
 });
 
+
+function checkUser () {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, you can access user information here
+          const umail = user.email;
+          const uname = user.displayName;
+          const uphoneno = user.phoneNumber;
+          const uphoto = user.photoURL;
+        //   document.getElementById('profName').innerHTML = uname;
+        //   document.getElementById('profEmail').innerHTML = umail;
+        //   document.getElementById('profPhoneNo').innerHTML = uphoneno;
+        //   document.getElementById('profPic').src = uphoto;
+        } else {
+          // User is not signed in, handle accordingly
+        }
+    });
+};
+
+function checkCookie() {
+    getRedirectResult(auth);
+    var cookies = getAllCookies();
+    
+    for (var cname in cookies) {
+        const cvalue = cookies[cname];
+        
+        getToken(cname)
+        .then((storedToken) => {
+            // Now you can use the storedToken for further processing outside this function
+            if(storedToken == cvalue) {
+                document.getElementById('blurback').style.display = 'block'; 
+                location.replace("./dashboard.html");
+            } else {
+
+               
+            }        
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+    }
+};
+
+
+function getToken(userId) {
+    // Assuming the user's UID is known
+    const userUid = userId;
+    // Reference to the user's data in the database
+    const userRef = ref(database, 'users/' + userUid);
+    return new Promise((resolve, reject) => {
+        // Listen for changes in the user's data
+        onValue(userRef, (snapshot) => {
+            const userData = snapshot.val();
+            if (userData) {
+                const storedToken = userData.Last_token;
+                resolve(storedToken); // Resolve the Promise with the storedToken
+            } else {
+                reject(new Error("User data not found"));
+            }
+        }, (error) => {
+            reject(error); // Reject the Promise if there's an error
+        });
+    });
+};
+
+
+
 getRedirectResult(auth).then((result) => {
+    
     // This gives you a Google Access Token. You can use it to access Google APIs.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
+   
     // The signed-in user info.
     const user = result.user;
     // IdP data available using getAdditionalUserInfo(result)
@@ -157,7 +229,7 @@ getRedirectResult(auth).then((result) => {
     })
     .catch((error) => {
         // The write failed...
-        // alert(error);
+        alert(error);
     });
 })
 .catch((error) => {
@@ -168,10 +240,20 @@ getRedirectResult(auth).then((result) => {
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
+<<<<<<< Updated upstream
+=======
+    hideLoadingScreen();
+    console.log(errorMessage);
+
+
+>>>>>>> Stashed changes
 });
 
 document.addEventListener("DOMContentLoaded", ready);
-document.onload = getRedirectResult(auth);
+
+document.onload = checkCookie(); 
+
+// document.onload = getRedirectResult(auth);
 const randamToken = () => {
     return Math.floor(Math.random()*Date.now()*100099).toString(36);
 };
@@ -209,4 +291,10 @@ function ready() {
     if (cookievalue == '1') {
         showLoadingScreen();
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+
+
+>>>>>>> Stashed changes

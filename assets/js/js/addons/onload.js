@@ -43,13 +43,18 @@ function checkCookie() {
         getToken(cname)
         .then((storedToken) => {
             // Now you can use the storedToken for further processing outside this function
-            if(storedToken == undefined) {
-                location.replace("./account.html");
+            if(storedToken == cvalue) {
+                document.getElementById('blurback').style.display = 'none'; 
+                
             } else {
+<<<<<<< Updated upstream
                 // console.log('FBToken Display', storedToken);
                 var offcan = document.getElementById('offcanvasib');
                 var clsoffcan = document.getElementById('clsoffc');
                 clsoffcan.click();
+=======
+                location.replace("./account.html");
+>>>>>>> Stashed changes
             }        
         })
         .catch((error) => {
