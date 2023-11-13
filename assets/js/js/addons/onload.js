@@ -98,6 +98,11 @@ btnProf.addEventListener('click', (e) => {
     offcan.classList.toggle("show");   
 });
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 btnSout.addEventListener('click', (e) => {
     document.getElementById('blurback').style.display = 'block'; 
     signOut(auth).then(() => {
