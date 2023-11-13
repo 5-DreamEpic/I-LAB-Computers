@@ -43,8 +43,9 @@ function checkCookie() {
         getToken(cname)
         .then((storedToken) => {
             // Now you can use the storedToken for further processing outside this function
-            if(storedToken == undefined) {
-                location.replace("./account.html");
+            if(storedToken == cvalue) {
+                document.getElementById('blurback').style.display = 'none'; 
+                
             } else {
                document.getElementById('blurback').style.display = 'none'; 
             }        
