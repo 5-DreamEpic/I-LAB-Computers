@@ -3,13 +3,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
 import { GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-<<<<<<< Updated upstream
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-import { getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
-=======
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 import { getDatabase, set, ref, update, onValue} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
->>>>>>> Stashed changes
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -286,7 +281,5 @@ function ready() {
     if (cookievalue == '1') {
         showLoadingScreen();
     }
-<<<<<<< Updated upstream
-}
-=======
+
 }
