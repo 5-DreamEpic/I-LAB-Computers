@@ -53,10 +53,13 @@ function createcard(rowColData, idvalue) {
     crdrow.id = "cardrow"+idvalue;
     crdrow.className = "row g-2";
 
+
     const cpbtn = document.createElement("button");
     cpbtn.className = "btn btn-outline-danger";
     cpbtn.innerHTML = "Buy Now";
     cpbtn.id = "buyNow";
+    cpbtn.onclick = PbuyNow;
+
 
     const cdbtn = document.createElement("button");
     cdbtn.className = "btn btn-outline-success";

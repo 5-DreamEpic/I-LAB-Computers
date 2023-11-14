@@ -32,7 +32,6 @@ btof.addEventListener("click", function() {
 });
 
 
-
 function mainf(k) {
     if (k == 1) {
         const rows = colltext.split('\n');
@@ -44,7 +43,6 @@ function mainf(k) {
             
         };
         
-
         mbtn.innerText = "Oldest First";
         paginClick(1);
 
@@ -64,7 +62,6 @@ function mainf(k) {
 
     }
 
-
 }
 
 function itmpagi(rl) {
@@ -80,7 +77,6 @@ function itmpagi(rl) {
     }
     // pagiClick(rowsq, i);
 
-    
 }
 
 function paginClick(i) { 
@@ -144,7 +140,7 @@ function createcard(rowColData,idvalue) {
     cpbtn.className = "btn btn-outline-danger";
     cpbtn.innerHTML = "Buy Now";
     cpbtn.id = "buyNow";
-    cpbtn.onclick = "PbuyNow();";
+    cpbtn.onclick = PbuyNow;
 
     const cdbtn = document.createElement("button");
     cdbtn.className = "btn btn-outline-success";

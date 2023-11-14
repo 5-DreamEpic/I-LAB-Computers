@@ -22,7 +22,7 @@ function generateDynamicContent() {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <style>body{
-            background-color: #eee;
+            background-color: #B5FFA0;
         }
         .container{
             height: 100vh;
@@ -33,7 +33,7 @@ function generateDynamicContent() {
         .form-control {
             border-bottom: 2px solid #eee !important;
             border: none;
-            font-weight: 600
+            font-weight: 600;
         }
         .form-control:focus {
             color: #495057;
@@ -42,38 +42,38 @@ function generateDynamicContent() {
             outline: 0;
             box-shadow: none;
             border-radius: 0px;
-            border-bottom: 2px solid blue !important;
+            border-bottom: 2px solid green !important;
         }
         .inputbox {
             position: relative;
             margin-bottom: 20px;
-            width: 100%
+            width: 100%;
         }
         .inputbox span {
             position: absolute;
             top: 7px;
             left: 11px;
-            transition: 0.5s
+            transition: 0.5s;
         }
         .inputbox i {
             position: absolute;
             top: 13px;
             right: 8px;
             transition: 0.5s;
-            color: #3F51B5
+            color: #3F51B5;
         }
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
-            margin: 0
+            margin: 0;
         }
         .inputbox input:focus~span {
             transform: translateX(-0px) translateY(-15px);
-            font-size: 12px
+            font-size: 12px;
         }
         .inputbox input:valid~span {
             transform: translateX(-0px) translateY(-15px);
-            font-size: 12px
+            font-size: 12px;
         }
         .card-blue{
             background-color: #492bc4;
