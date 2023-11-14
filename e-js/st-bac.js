@@ -136,8 +136,12 @@ function createcard(rowColData,idvalue) {
     ttlpb.className ="card-text fw-semibold text-danger";
     ttlpb.innerText = rowColData[5];
 
+    const crdrow = document.createElement("div");
+    crdrow.id = "cardrow"+idvalue;
+    crdrow.className = "row g-2";
+
     const cpbtn = document.createElement("button");
-    cpbtn.className = "btn btn-outline-danger mx-2";
+    cpbtn.className = "btn btn-outline-danger";
     cpbtn.innerHTML = "Buy Now";
     cpbtn.id = "buyNow";
     cpbtn.onclick = "PbuyNow();";
@@ -194,9 +198,10 @@ function createcard(rowColData,idvalue) {
     document.getElementById("cardbox"+idvalue).appendChild(crdbdy);
     document.getElementById("cardbdy"+idvalue).appendChild(ttlp);
     document.getElementById("cardbdy"+idvalue).appendChild(ttlpb);
-
-    document.getElementById("cardbdy"+idvalue).appendChild(cdbtn);
-    document.getElementById("cardbdy"+idvalue).appendChild(cpbtn); 
+    document.getElementById("cardbdy"+idvalue).appendChild(crdrow);
+    
+    document.getElementById("cardrow"+idvalue).appendChild(cdbtn);
+    document.getElementById("cardrow"+idvalue).appendChild(cpbtn); 
 
 };
 

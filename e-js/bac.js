@@ -4,7 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebas
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
 import { GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-import { getDatabase, set, ref, update, onValue} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+import { getDatabase, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -160,7 +160,9 @@ function checkCookie() {
             if(storedToken == cvalue) {
                 document.getElementById('blurback').style.display = 'block'; 
                 location.replace("./dashboard.html");
+                
             } else {
+                document.getElementById('blurback').style.display = 'none'; 
 
                
             }        

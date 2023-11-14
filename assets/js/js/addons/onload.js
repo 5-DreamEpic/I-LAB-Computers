@@ -37,17 +37,21 @@ function checkUser () {
 
 function checkCookie() {
     var cookies = getAllCookies();
+    console.log(cookies);
     checkUser(); 
     for (var cname in cookies) {
         const cvalue = cookies[cname];
         getToken(cname)
         .then((storedToken) => {
+            console.log(storedToken);
+            console.log(cvalue);
             // Now you can use the storedToken for further processing outside this function
             if(storedToken == cvalue) {
                 document.getElementById('blurback').style.display = 'none'; 
                 
             } else {
-               document.getElementById('blurback').style.display = 'none'; 
+               document.getElementById('blurback').style.display = 'block'; 
+               window.location.replace("./account.html");
             }        
         })
         .catch((error) => {
