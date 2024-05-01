@@ -1,12 +1,11 @@
 
-First Year Project # I-LAB-Computers
+#First Year Project # I-LAB-Computers
+##Computer Selling Shop Website
 
-#Computer Selling Shop Website
-
-Project Overview
+##Project Overview
 Welcome to our Computer Selling Shop Website project! This web application is designed to provide a user-friendly platform for computer shop owners to manage their products seamlessly. The project primarily focuses on optimizing hosting space usage by integrating with Google Sheets for data storage.
 
-Features
+##Features
   - Owner Login:
 
   - Secure login functionality for shop owners to access the admin dashboard.
@@ -23,7 +22,7 @@ Features
 
   - The website is built using HTML, CSS, Bootstrap, and JavaScript to ensure a responsive and visually appealing experience for both shop owners and customers.
 
-Technologies Used
+##Technologies Used
 
   - HTML: The backbone of the website's structure.
 
@@ -33,7 +32,7 @@ Technologies Used
 
   - JavaScript: Adding dynamic behavior to the website, facilitating real-time updates.
 
-How to Use
+##How to Use
 
   Owner Login:
   
@@ -48,7 +47,7 @@ How to Use
   
   Customers can explore the range of products and make purchases directly on the website.
 
-Getting Started
+##Getting Started
 
 To run this project locally, follow these steps:
 
@@ -56,7 +55,7 @@ Clone the repository to your local machine.
 Open the project folder and navigate to the index.html file.
 Open index.html using your preferred web browser.
 
-Contributors
+##Contributors
   - Suneth Udayanga
   - Rashmika Malshani
   - Aadhil Ahamed
@@ -64,7 +63,7 @@ Contributors
   - A. Dilaxen
   - Hansini Dissanayaka
     
-Acknowledgments
+##Acknowledgments
 We would like to express our gratitude to Bootstrap for their valuable contributions to this project.
 
 Feel free to reach out if you have any questions or feedback. Happy exploring and shopping!
